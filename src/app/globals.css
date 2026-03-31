@@ -1,26 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+/* ── Design tokens ─────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand:       #FF5C00;
+  --brand-d:     #E04F00;
+  --brand-light: rgba(255,92,0,0.15);
+  --ink:         #FFFFFF;
+  --ink2:        rgba(255,255,255,0.8);
+  --ink3:        rgba(255,255,255,0.6);
+  --surface:     #0A0A0B;
+  --surface-alt: #111114;
+  --white:       #FFFFFF;
+  --border:      rgba(255,255,255,0.08);
+  --green:       #10B981;
+  --yellow:      #F59E0B;
+  --font:        'Inter', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font);
+  background: var(--surface);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Glassmorphism ────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 16px 40px -4px rgba(0, 0, 0, 0.4), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glow-orb {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,92,0,0.12) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Layout wrapper ────────────────────────── */
+/* Fluid: takes 92% of viewport up to 1280px   */
+.wrap {
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Typography tokens ─────────────────────── */
+/* Hero h1 — display only */
+.h-display {
+  font-family: var(--font);
+  font-size: clamp(30px, 3.5vw, 46px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.2px;
+  color: var(--ink);
+}
+
+/* Section h2 */
+.h-section {
+  font-family: var(--font);
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+/* White variant */
+.h-section-white {
+  color: #fff;
+}
+
+/* Eyebrow label */
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+  padding: 3px 10px;
+  background: var(--brand-light);
+  border-radius: 9999px;
+}
+
+/* Body lead */
+.lead {
+  font-size: 15px;
+  color: var(--ink3);
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* ── Buttons ────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+  padding: 12px 22px;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--brand-d);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(255,92,0,0.28);
+}
+.btn-outline {
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.btn-outline:hover {
+  border-color: rgba(255,255,255,0.45);
+  color: #fff;
+}
+
+/* ── Animations ─────────────────────────────── */
+@keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes growbar  { from{transform:scaleY(0);transform-origin:bottom} to{transform:scaleY(1);transform-origin:bottom} }
+@keyframes floatA   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@keyframes fadeUp   { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── Step hover ─────────────────────────────── */
+.step-card:hover .step-num {
+  background: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: #fff !important;
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-cols  { grid-template-columns: 1fr !important; }
+  .roi-cols   { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .grid-3     { grid-template-columns: 1fr 1fr !important; }
+  .grid-4     { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 560px) {
+  .grid-3     { grid-template-columns: 1fr !important; }
+  .grid-4     { grid-template-columns: 1fr !important; }
 }
