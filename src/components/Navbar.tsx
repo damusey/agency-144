@@ -1,19 +1,57 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { ArrowRight, Menu, X } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { ArrowRight, Menu, X, Sparkles, LineChart, Bot, Boxes } from 'lucide-react';
+import { solutionCategories, iconMap } from '@/data/solutions';
 
-const links = ['Services', 'Work', 'Pricing', 'About'];
+export const navLinks = [
+  { name: 'Solutions', href: '/#services' },
+  { name: 'Platform', href: '/platform/flowai' },
+  { name: 'Work', href: '/work' },
+  { name: 'About', href: '/about' },
+  { name: 'FAQ', href: '/faq' },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [megaOpen, setMegaOpen] = useState(false);
+  const [platformOpen, setPlatformOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(0);
+  const megaRef = useRef<HTMLDivElement>(null);
+  const platformRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLAnchorElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const platformTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const openMega = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setMegaOpen(true);
+    setPlatformOpen(false);
+  };
+
+  const scheduleMegaClose = () => {
+    closeTimer.current = setTimeout(() => setMegaOpen(false), 200);
+  };
+
+  const openPlatform = () => {
+    if (platformTimer.current) clearTimeout(platformTimer.current);
+    setPlatformOpen(true);
+    setMegaOpen(false);
+  };
+
+  const schedulePlatformClose = () => {
+    platformTimer.current = setTimeout(() => setPlatformOpen(false), 200);
+  };
+
+  const cat = solutionCategories[activeCategory];
+  const IconComp = iconMap[cat.iconName];
 
   return (
     <nav style={{
@@ -27,31 +65,74 @@ export default function Navbar() {
     }}>
       <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font)', fontWeight: 800, fontSize: '18px', color: 'var(--ink)', cursor: 'pointer', letterSpacing: '-0.4px' }}>
-          <div style={{ width: 26, height: 26, background: 'var(--brand)', borderRadius: 7, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 10px rgba(255,92,0,0.4)' }}>
-            <ArrowRight size={13} color="#fff" strokeWidth={2.5} />
+        <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 800, fontSize: '18px', color: 'var(--ink)', cursor: 'pointer', letterSpacing: '-0.4px' }}>
+            <div style={{ width: 26, height: 26, background: 'var(--brand)', borderRadius: 7, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 10px rgba(255,92,0,0.4)' }}>
+              <ArrowRight size={13} color="#fff" strokeWidth={2.5} />
+            </div>
+            Oktuv
           </div>
-          Flowmatic
-        </div>
+        </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex glass" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px', borderRadius: '100px', background: scrolled ? 'rgba(255,255,255,0.02)' : 'rgba(255, 255, 255, 0.04)' }}>
-          {links.map(l => (
-            <a key={l} href={`#${l.toLowerCase()}`}
-              style={{ fontSize: '13.5px', color: 'var(--ink2)', textDecoration: 'none', transition: 'all 0.2s', fontWeight: 500, padding: '8px 20px', borderRadius: '100px' }}
-              onMouseEnter={e => { e.currentTarget.style.color = 'var(--ink)'; e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
-              onMouseLeave={e => { e.currentTarget.style.color = 'var(--ink2)'; e.currentTarget.style.background = 'transparent'; }}
-            >{l}</a>
+        <div className="hidden md:flex glass" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px', borderRadius: '100px', background: scrolled ? 'rgba(255,255,255,0.02)' : 'rgba(255,255,255,0.04)' }}>
+          {navLinks.map(l => (
+            l.name === 'Solutions' ? (
+              <a
+                key={l.name}
+                ref={triggerRef}
+                href={l.href}
+                onClick={e => { e.preventDefault(); openMega(); }}
+                onMouseEnter={(e) => { openMega(); e.currentTarget.style.color = 'var(--ink)'; e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
+                onMouseLeave={(e) => { scheduleMegaClose(); e.currentTarget.style.color = 'var(--ink2)'; e.currentTarget.style.background = 'transparent'; }}
+                style={{ fontSize: '13.5px', color: megaOpen ? 'var(--ink)' : 'var(--ink2)', textDecoration: 'none', transition: 'all 0.2s', fontWeight: 500, padding: '8px 20px', borderRadius: '100px', position: 'relative' }}
+              >
+                Solutions
+                <span style={{
+                  display: 'inline-block',
+                  marginLeft: '4px',
+                  transition: 'transform 0.2s',
+                  transform: megaOpen ? 'rotate(180deg)' : 'rotate(0)',
+                  fontSize: '10px',
+                }}>▾</span>
+              </a>
+            ) : l.name === 'Platform' ? (
+              <a
+                key={l.name}
+                href={l.href}
+                onClick={e => { e.preventDefault(); openPlatform(); }}
+                onMouseEnter={(e) => { openPlatform(); e.currentTarget.style.color = 'var(--ink)'; e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
+                onMouseLeave={(e) => { schedulePlatformClose(); e.currentTarget.style.color = 'var(--ink2)'; e.currentTarget.style.background = 'transparent'; }}
+                style={{ fontSize: '13.5px', color: platformOpen ? 'var(--ink)' : 'var(--ink2)', textDecoration: 'none', transition: 'all 0.2s', fontWeight: 500, padding: '8px 20px', borderRadius: '100px', position: 'relative' }}
+              >
+                Platform
+                <span style={{
+                  display: 'inline-block',
+                  marginLeft: '4px',
+                  transition: 'transform 0.2s',
+                  transform: platformOpen ? 'rotate(180deg)' : 'rotate(0)',
+                  fontSize: '10px',
+                }}>▾</span>
+              </a>
+            ) : (
+              <a key={l.name} href={l.href}
+                style={{ fontSize: '13.5px', color: 'var(--ink2)', textDecoration: 'none', transition: 'all 0.2s', fontWeight: 500, padding: '8px 20px', borderRadius: '100px' }}
+                onMouseEnter={e => { e.currentTarget.style.color = 'var(--ink)'; e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = 'var(--ink2)'; e.currentTarget.style.background = 'transparent'; }}
+              >{l.name}</a>
+            )
           ))}
         </div>
-        
+
         <div className="hidden md:block">
-          <button className="btn btn-primary" style={{ padding: '10px 22px', fontSize: '13.5px', borderRadius: '100px' }}
-            onMouseEnter={e => { const b = e.currentTarget; b.style.background = 'var(--brand-d)'; b.style.transform = 'translateY(-1px)'; }}
-            onMouseLeave={e => { const b = e.currentTarget; b.style.background = 'var(--brand)'; b.style.transform = 'translateY(0)'; }}
-          >
-            Book Free Call
-          </button>
+          <a href="/book" style={{ textDecoration: 'none' }}>
+            <button className="btn btn-primary" style={{ padding: '10px 22px', fontSize: '13.5px', borderRadius: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'var(--brand-d)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'var(--brand)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+            >
+              Book Free Call
+            </button>
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -63,15 +144,261 @@ export default function Navbar() {
         {/* Mobile dropdown */}
         {menuOpen && (
           <div className="md:hidden glass" style={{ position: 'absolute', top: '80px', left: '4%', right: '4%', padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px', borderRadius: '24px' }}>
-            {links.map(l => (
-              <a key={l} href={`#${l.toLowerCase()}`}
+            {navLinks.map(l => (
+              <a key={l.name} href={l.href}
                 style={{ fontSize: '16px', color: 'var(--ink)', textDecoration: 'none', fontWeight: 500 }}
-                onClick={() => setMenuOpen(false)}>{l}</a>
+                onClick={() => setMenuOpen(false)}>{l.name}</a>
             ))}
-            <button className="btn btn-primary" style={{ width: '100%', marginTop: '8px', justifyContent: 'center' }}>Book Free Call</button>
+            <a href="/book" style={{ textDecoration: 'none', width: '100%' }}><button className="btn btn-primary" style={{ width: '100%', marginTop: '8px', justifyContent: 'center' }}>Book Free Call</button></a>
           </div>
         )}
       </div>
+
+      {/* ────────── MEGA DROPDOWN ────────── */}
+      {megaOpen && (
+        <div
+          ref={megaRef}
+          onMouseEnter={openMega}
+          onMouseLeave={scheduleMegaClose}
+          style={{
+            position: 'absolute',
+            top: '72px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 'min(1200px, 94vw)',
+            background: 'rgba(12, 12, 14, 0.98)',
+            backdropFilter: 'blur(32px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '24px',
+            boxShadow: '0 32px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.03) inset',
+            padding: '36px 0',
+            animation: 'megaIn 0.25s ease forwards',
+            zIndex: 1000,
+          }}
+        >
+          {/* Mega heading */}
+          <div style={{ padding: '0 40px 24px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+            <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--ink)', marginBottom: '4px' }}>Explore Our Solutions</div>
+            <div style={{ fontSize: '13px', color: 'var(--ink3)' }}>Built to help brands design, automate, grow, and transform.</div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr 240px', minHeight: '360px' }}>
+
+            {/* COLUMN 1 — Category list */}
+            <div style={{ padding: '20px 0', borderRight: '1px solid rgba(255,255,255,0.06)' }}>
+              {solutionCategories.map((c, i) => {
+                const CatIcon = iconMap[c.iconName];
+                const isActive = i === activeCategory;
+                return (
+                  <a
+                    key={c.key}
+                    href={`/solutions/${c.key}`}
+                    onMouseEnter={() => setActiveCategory(i)}
+                    onClick={e => e.preventDefault()}
+                    style={{
+                      display: 'flex', alignItems: 'flex-start', gap: '14px',
+                      padding: '14px 28px',
+                      cursor: 'pointer',
+                      background: isActive ? 'rgba(255,92,0,0.06)' : 'transparent',
+                      borderLeft: isActive ? '2px solid var(--brand)' : '2px solid transparent',
+                      transition: 'all 0.15s ease',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    {CatIcon && <CatIcon size={18} color={isActive ? 'var(--brand)' : 'var(--ink3)'} style={{ marginTop: '2px', flexShrink: 0 }} />}
+                    <div>
+                      <div style={{ fontSize: '14px', fontWeight: 600, color: isActive ? 'var(--ink)' : 'var(--ink2)', marginBottom: '2px' }}>{c.label}</div>
+                      <div style={{ fontSize: '11.5px', color: 'var(--ink3)', lineHeight: 1.4 }}>{c.subtitle}</div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+
+            {/* COLUMN 2 — Active category detail with deep links */}
+            <div style={{ padding: '28px 36px' }} key={cat.key}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                {IconComp && <IconComp size={20} color="var(--brand)" />}
+                <h3 style={{ fontSize: '20px', fontWeight: 700, color: 'var(--ink)', margin: 0 }}>{cat.heading}</h3>
+              </div>
+              <p style={{ fontSize: '13px', color: 'var(--ink3)', marginBottom: '28px', lineHeight: 1.5 }}>{cat.intro}</p>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {cat.services.map(s => (
+                  <a
+                    key={s.slug}
+                    href={`/solutions/${cat.key}#${s.slug}`}
+                    onClick={() => setMegaOpen(false)}
+                    className="mega-service-row"
+                    style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', cursor: 'pointer', padding: '10px 14px', borderRadius: '12px', transition: 'background 0.15s', textDecoration: 'none' }}
+                  >
+                    <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--brand)', marginTop: '7px', flexShrink: 0 }} />
+                    <div>
+                      <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--ink)', marginBottom: '3px' }}>{s.name}</div>
+                      <div style={{ fontSize: '12.5px', color: 'var(--ink3)', lineHeight: 1.45 }}>{s.desc}</div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {/* View all for this category */}
+              <a
+                href={`/solutions/${cat.key}`}
+                onClick={() => setMegaOpen(false)}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '24px', fontSize: '13px', fontWeight: 600, color: 'var(--brand)', textDecoration: 'none', transition: 'gap 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.gap = '10px')}
+                onMouseLeave={e => (e.currentTarget.style.gap = '6px')}
+              >
+                View all {cat.label} solutions <ArrowRight size={14} />
+              </a>
+            </div>
+
+            {/* COLUMN 3 — Featured CTA */}
+            <div style={{ padding: '28px 28px', borderLeft: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{
+                  width: '100%', height: '120px', borderRadius: '14px',
+                  background: 'linear-gradient(135deg, rgba(255,92,0,0.12) 0%, rgba(255,92,0,0.03) 100%)',
+                  border: '1px solid rgba(255,92,0,0.12)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginBottom: '24px',
+                }}>
+                  <Sparkles size={36} color="var(--brand)" style={{ opacity: 0.6 }} />
+                </div>
+
+                <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--ink)', marginBottom: '8px' }}>
+                  Need a custom solution?
+                </div>
+                <p style={{ fontSize: '12.5px', color: 'var(--ink3)', lineHeight: 1.5, marginBottom: '24px' }}>
+                  Not sure where to start? Our strategists will map the right stack for your exact growth stage.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <a href="/book" style={{ textDecoration: 'none' }}>
+                  <button className="btn btn-primary" style={{ width: '100%', padding: '10px 16px', fontSize: '13px', borderRadius: '10px', justifyContent: 'center' }}>
+                    Book a Strategy Call
+                  </button>
+                </a>
+                <a href="/work" style={{ textDecoration: 'none', textAlign: 'center', fontSize: '12.5px', color: 'var(--ink3)', transition: 'color 0.2s' }}
+                  onMouseEnter={e => e.currentTarget.style.color = 'var(--brand)'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'var(--ink3)'}
+                >
+                  See our work →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ────────── PLATFORM DROPDOWN ────────── */}
+      {platformOpen && (
+        <div
+          ref={platformRef}
+          onMouseEnter={openPlatform}
+          onMouseLeave={schedulePlatformClose}
+          style={{
+            position: 'absolute',
+            top: '72px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 'min(680px, 92vw)',
+            background: 'rgba(12, 12, 14, 0.98)',
+            backdropFilter: 'blur(32px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '24px',
+            boxShadow: '0 32px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.03) inset',
+            padding: '32px',
+            animation: 'megaIn 0.25s ease forwards',
+            zIndex: 1000,
+          }}
+        >
+          <div style={{ marginBottom: '20px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+              <Boxes size={16} color="var(--brand)" />
+              <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--ink)' }}>Our Platform</span>
+            </div>
+            <p style={{ fontSize: '13px', color: 'var(--ink3)', margin: 0 }}>In-house built tools to supercharge your business.</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {/* FlowAI Analytics Card */}
+            <a
+              href="/platform/flowai"
+              onClick={() => setPlatformOpen(false)}
+              className="platform-card"
+              style={{
+                padding: '24px',
+                borderRadius: '16px',
+                background: 'rgba(255,255,255,0.02)',
+                border: '1px solid rgba(255,255,255,0.07)',
+                textDecoration: 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(255,92,0,0.1)', border: '1px solid rgba(255,92,0,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <LineChart size={20} color="var(--brand)" />
+              </div>
+              <div>
+                <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--ink)', marginBottom: '4px' }}>FlowAI Analytics</div>
+                <p style={{ fontSize: '12.5px', color: 'var(--ink3)', lineHeight: 1.45, margin: 0 }}>Chat with your data. Get instant, accurate insights powered by agentic AI — no dashboards, no SQL.</p>
+              </div>
+              <div style={{ fontSize: '12px', color: 'var(--brand)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px', marginTop: 'auto' }}>
+                Explore <ArrowRight size={12} />
+              </div>
+            </a>
+
+            {/* FlowBot Studio Card */}
+            <a
+              href="/platform/flowbot"
+              onClick={() => setPlatformOpen(false)}
+              className="platform-card"
+              style={{
+                padding: '24px',
+                borderRadius: '16px',
+                background: 'rgba(255,255,255,0.02)',
+                border: '1px solid rgba(255,255,255,0.07)',
+                textDecoration: 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(255,92,0,0.1)', border: '1px solid rgba(255,92,0,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Bot size={20} color="var(--brand)" />
+              </div>
+              <div>
+                <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--ink)', marginBottom: '4px' }}>FlowBot Studio</div>
+                <p style={{ fontSize: '12.5px', color: 'var(--ink3)', lineHeight: 1.45, margin: 0 }}>Build AI chatbots visually and deploy across WhatsApp, web, apps, and more — in minutes, not months.</p>
+              </div>
+              <div style={{ fontSize: '12px', color: 'var(--brand)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px', marginTop: 'auto' }}>
+                Explore <ArrowRight size={12} />
+              </div>
+            </a>
+          </div>
+        </div>
+      )}
+
+      {/* Mega menu styles */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes megaIn {
+          from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+          to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        .mega-service-row:hover {
+          background: rgba(255,255,255,0.04) !important;
+        }
+        .platform-card:hover {
+          border-color: rgba(255,92,0,0.2) !important;
+          background: rgba(255,92,0,0.04) !important;
+          box-shadow: 0 0 32px rgba(255,92,0,0.04);
+        }
+      `}} />
     </nav>
   );
 }

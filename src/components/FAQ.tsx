@@ -14,8 +14,8 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section style={{ padding: '8vw 0', position: 'relative' }}>
-      <div className="glow-orb" style={{ top: '50%', right: '-10%', transform: 'translateY(-50%)', background: 'radial-gradient(circle, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0) 60%)' }} />
+    <section style={{ padding: '5vw 0', position: 'relative' }}>
+      <div className="glow-orb" style={{ top: '50%', right: '-10%', transform: 'translateY(-50%)', background: 'radial-gradient(circle, rgba(255,158,11,0.04) 0%, rgba(0,0,0,0) 60%)' }} />
 
       <div className="wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: '8vw', alignItems: 'start', position: 'relative', zIndex: 10 }}>
         
@@ -26,7 +26,7 @@ export default function FAQ() {
           <p className="lead" style={{ marginBottom: '32px' }}>
             We play with open cards. If you don&apos;t see your question here, let&apos;s talk.
           </p>
-          <button className="btn btn-outline" style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(12px)' }}>Book a discovery call</button>
+          <button className="btn btn-primary" style={{ boxShadow: '0 4px 20px rgba(255,92,0,0.2)' }}>Book a discovery call</button>
         </div>
 
         {/* Right */}

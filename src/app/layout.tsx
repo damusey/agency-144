@@ -1,9 +1,46 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ScarcityBar from "@/components/ScarcityBar";
+
+const SITE_URL = 'https://www.oktuvglobal.com';
 
 export const metadata: Metadata = {
-  title: "Flowmatic — Web, AI & Growth Agency",
-  description: "Flowmatic turns your digital presence into a 24/7 growth engine. Web development, AI automation, performance marketing, and design — all in one senior team.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Oktuv — Web, AI & Growth Agency',
+    template: '%s | Oktuv',
+  },
+  description: 'Oktuv turns your digital presence into a 24/7 growth engine. Web development, AI automation, performance marketing, and design — all in one senior team.',
+  keywords: ['AI agency', 'web development', 'growth agency', 'AI automation', 'performance marketing', 'digital agency', 'FlowAI', 'FlowBot', 'chatbot', 'analytics'],
+  authors: [{ name: 'Oktuv' }],
+  creator: 'Oktuv',
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: SITE_URL,
+    siteName: 'Oktuv',
+    title: 'Oktuv — Web, AI & Growth Agency',
+    description: 'Oktuv turns your digital presence into a 24/7 growth engine. Web development, AI automation, performance marketing, and design — all in one senior team.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Oktuv — Web, AI & Growth Agency',
+    description: 'Web, AI, marketing, design — all in one elite team.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({
@@ -19,7 +56,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <ScarcityBar />
+        {children}
+      </body>
     </html>
   );
 }

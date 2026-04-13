@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function FinalCTA() {
   return (
-    <section style={{ padding: '12vw 0', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: '5vw 0', position: 'relative', overflow: 'hidden' }}>
 
       <div className="glow-orb" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'radial-gradient(circle, rgba(255,92,0,0.15) 0%, rgba(0,0,0,0) 60%)', width: '1200px', height: '1200px' }} />
 
@@ -25,15 +25,13 @@ export default function FinalCTA() {
         
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <button className="btn btn-primary" style={{ fontSize: '16px', padding: '18px 36px', borderRadius: '100px', boxShadow: '0 8px 30px rgba(255,92,0,0.3)' }}
+            <a href="/audit" style={{ textDecoration: 'none' }}><button className="btn btn-primary" style={{ fontSize: '16px', padding: '18px 36px', borderRadius: '100px', boxShadow: '0 8px 30px rgba(255,92,0,0.3)' }}
               onMouseEnter={e => { const b = e.currentTarget; b.style.background = 'var(--brand-d)'; b.style.transform = 'translateY(-2px) scale(1.02)'; }}
               onMouseLeave={e => { const b = e.currentTarget; b.style.background = 'var(--brand)'; b.style.transform = 'translateY(0) scale(1)'; }}
             >
-              Book my free growth audit <ArrowRight size={16} style={{ marginLeft: '4px' }}/>
-            </button>
-            <button className="btn btn-outline" style={{ border: '1px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(12px)', fontSize: '16px', padding: '18px 36px', borderRadius: '100px' }}>
-              Browse case studies
-            </button>
+              Book our free growth audit <ArrowRight size={16} style={{ marginLeft: '4px' }}/>
+            </button></a>
+
           </div>
           
           <div className="glass" style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap', justifyContent: 'center', fontSize: '13px', color: 'var(--ink3)', padding: '12px 32px', borderRadius: '100px', border: '1px solid rgba(255,255,255,0.05)' }}>
