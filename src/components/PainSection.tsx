@@ -54,6 +54,14 @@ export default function PainSection() {
   const [isHovered, setIsHovered] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Preload all background images on mount to prevent repeated network fetches
+  useEffect(() => {
+    painPoints.forEach((_, i) => {
+      const img = new Image();
+      img.src = `/images/pain_bg_${i + 1}.webp`;
+    });
+  }, []);
+
   useEffect(() => {
     if (isHovered) return;
     
