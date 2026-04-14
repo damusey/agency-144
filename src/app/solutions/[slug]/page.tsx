@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
@@ -86,7 +87,7 @@ export default function SolutionPage() {
           <div style={{ textAlign: 'center' }}>
             <h1 style={{ fontSize: '48px', color: 'var(--ink)', marginBottom: '16px' }}>404</h1>
             <p style={{ color: 'var(--ink2)' }}>Solution category not found.</p>
-            <a href="/" style={{ color: 'var(--brand)', textDecoration: 'none', marginTop: '16px', display: 'inline-block' }}>← Back Home</a>
+            <Link href="/" style={{ color: 'var(--brand)', textDecoration: 'none', marginTop: '16px', display: 'inline-block' }}>← Back Home</Link>
           </div>
         </main>
         <Footer />
@@ -110,10 +111,10 @@ export default function SolutionPage() {
       <main style={{ minHeight: '100vh', background: 'var(--bg)', position: 'relative' }}>
 
         {/* Glow */}
-        <div className="glow-orb" style={{ top: 0, left: '50%', transform: 'translateX(-50%)', background: 'radial-gradient(circle, rgba(255,92,0,0.06) 0%, transparent 65%)', width: '1100px', height: '700px', pointerEvents: 'none' }} />
+        <div className="glow-orb" style={{ top: 0, left: '50%', transform: 'translateX(-50%)', background: 'radial-gradient(circle, rgba(255,92,0,0.06) 0%, transparent 65%)', width: 'min(1100px, 100vw)', height: 'min(700px, 100vw)', pointerEvents: 'none' }} />
 
         {/* ── HERO ── */}
-        <section style={{ padding: '88px 0 40px', position: 'relative', zIndex: 10 }}>
+        <section style={{ padding: 'clamp(60px, 10vw, 88px) 0 40px', position: 'relative', zIndex: 10 }}>
           <div className="wrap">
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
               {Icon && <Icon size={20} color="var(--brand)" />}
@@ -131,12 +132,12 @@ export default function SolutionPage() {
         </section>
 
         {/* ── CATEGORY SWITCHER ── */}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(12,12,14,0.7)', backdropFilter: 'blur(12px)', position: 'sticky', top: '72px', zIndex: 50 }}>
-          <div className="wrap" style={{ display: 'flex', gap: '4px', padding: '10px 0', overflowX: 'auto' }}>
+        <div className="lg:hidden" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(12,12,14,0.7)', backdropFilter: 'blur(12px)', position: 'sticky', top: '72px', zIndex: 50 }}>
+          <div className="wrap sol-scroll-hide" style={{ display: 'flex', gap: '4px', padding: '10px 0', overflowX: 'auto', scrollbarWidth: 'none' }}>
             {solutionCategories.map(c => {
               const isActive = c.key === slug;
               return (
-                <a
+                <Link
                   key={c.key}
                   href={`/solutions/${c.key}`}
                   style={{
@@ -153,17 +154,17 @@ export default function SolutionPage() {
                   }}
                 >
                   {c.label}
-                </a>
+                </Link>
               );
             })}
           </div>
         </div>
 
         {/* ── MAIN CONTENT: Sidebar + Sections ── */}
-        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '48px', padding: '64px 0 120px', position: 'relative', zIndex: 10 }}>
+        <div className="wrap sol-grid" style={{ display: 'grid', gap: 'clamp(24px, 4vw, 48px)', padding: 'clamp(32px, 5vw, 64px) 0 clamp(60px, 10vw, 120px)', position: 'relative', zIndex: 10 }}>
 
-          {/* Sticky Sub-Nav Sidebar */}
-          <div ref={subNavRef} style={{ position: 'sticky', top: '140px', alignSelf: 'start' }}>
+          {/* Sticky Sub-Nav Sidebar (Desktop) */}
+          <div ref={subNavRef} className="hidden lg:block" style={{ position: 'sticky', top: '140px', alignSelf: 'start' }}>
             <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--ink3)', marginBottom: '20px', fontFamily: 'monospace' }}>
               In this section
             </div>
@@ -198,16 +199,47 @@ export default function SolutionPage() {
             <div style={{ marginTop: '32px', padding: '20px', borderRadius: '16px', background: 'rgba(255,92,0,0.04)', border: '1px solid rgba(255,92,0,0.1)' }}>
               <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--ink)', marginBottom: '8px' }}>Need help choosing?</div>
               <p style={{ fontSize: '12px', color: 'var(--ink3)', lineHeight: 1.5, marginBottom: '14px' }}>Our strategists will map the right solution for your exact growth stage.</p>
-              <a href="/book" style={{ textDecoration: 'none' }}>
+              <Link href="/book" style={{ textDecoration: 'none' }}>
                 <button className="btn btn-primary" style={{ width: '100%', padding: '8px 14px', fontSize: '12px', borderRadius: '8px', justifyContent: 'center' }}>
                   Book a Call
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
 
           {/* Service Sections */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '48px', minWidth: 0 }}>
+            
+            {/* Mobile Sub-Nav Carousel (Mobile) */}
+            <div className="lg:hidden" style={{ marginBottom: '16px' }}>
+              <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--ink3)', marginBottom: '12px', fontFamily: 'monospace' }}>
+                In this section
+              </div>
+              <div style={{ display: 'flex', overflowX: 'auto', gap: '8px', paddingBottom: '8px', scrollbarWidth: 'none' }}>
+                {category.services.map(s => {
+                  const isActive = activeSection === s.slug;
+                  return (
+                    <button
+                      key={'mob-s-'+s.slug}
+                      onClick={() => scrollToSection(s.slug)}
+                      style={{
+                        background: isActive ? 'rgba(255,92,0,0.1)' : 'rgba(255,255,255,0.03)',
+                        border: isActive ? '1px solid rgba(255,92,0,0.3)' : '1px solid rgba(255,255,255,0.08)',
+                        padding: '8px 16px',
+                        borderRadius: '100px',
+                        whiteSpace: 'nowrap',
+                        color: isActive ? 'var(--ink)' : 'var(--ink2)',
+                        fontSize: '13px',
+                        fontWeight: 500,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {s.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
             {category.services.map((s, idx) => (
               <div
                 key={s.slug}
@@ -219,28 +251,29 @@ export default function SolutionPage() {
                   border: '1px solid rgba(255,255,255,0.07)',
                   overflow: 'hidden',
                   position: 'relative',
+                  maxWidth: '100%',
                 }}
               >
                 {/* Top accent stripe */}
                 <div style={{ height: '3px', background: `linear-gradient(90deg, var(--brand), transparent)` }} />
 
-                <div style={{ padding: '48px 48px 40px' }}>
+                <div style={{ padding: 'clamp(24px, 4vw, 48px) clamp(20px, 4vw, 48px) clamp(24px, 4vw, 40px)' }}>
                   {/* Header */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--brand)' }} />
+                    <div style={{ width: 'min(8px, 100vw)', height: '8px', borderRadius: '50%', background: 'var(--brand)' }} />
                     <span style={{ fontSize: '11px', color: 'var(--brand)', fontFamily: 'monospace', letterSpacing: '1px', textTransform: 'uppercase' }}>
                       {String(idx + 1).padStart(2, '0')}
                     </span>
                   </div>
-                  <h2 style={{ fontSize: '28px', fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.5px', marginBottom: '12px' }}>
+                  <h2 style={{ fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.5px', marginBottom: '12px' }}>
                     {s.name}
                   </h2>
-                  <p style={{ fontSize: '16px', color: 'var(--ink2)', lineHeight: 1.65, marginBottom: '32px', maxWidth: '600px' }}>
+                  <p style={{ fontSize: '15px', color: 'var(--ink2)', lineHeight: 1.65, marginBottom: '32px', maxWidth: '100%', overflowWrap: 'break-word' }}>
                     {s.desc}
                   </p>
 
                   {/* Content Grid: Bullets + Use Cases */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+                  <div className="grid-stack-mob" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(20px, 4vw, 40px)' }}>
                     {/* Bullets */}
                     <div>
                       <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--ink3)', fontFamily: 'monospace', marginBottom: '16px' }}>
@@ -250,7 +283,7 @@ export default function SolutionPage() {
                         {s.bullets.map(b => (
                           <li key={b} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
                             <ChevronRight size={14} color="var(--brand)" style={{ marginTop: '3px', flexShrink: 0 }} />
-                            <span style={{ fontSize: '14px', color: 'var(--ink2)', lineHeight: 1.5 }}>{b}</span>
+                            <span style={{ fontSize: '14px', color: 'var(--ink2)', lineHeight: 1.5, overflowWrap: 'break-word' }}>{b}</span>
                           </li>
                         ))}
                       </ul>
@@ -277,12 +310,12 @@ export default function SolutionPage() {
                       </div>
 
                       {/* Section CTA */}
-                      <a href="/book" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '28px', fontSize: '13px', fontWeight: 600, color: 'var(--brand)', transition: 'gap 0.2s' }}
+                      <Link href="/book" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '28px', fontSize: '13px', fontWeight: 600, color: 'var(--brand)', transition: 'gap 0.2s' }}
                         onMouseEnter={e => (e.currentTarget.style.gap = '10px')}
                         onMouseLeave={e => (e.currentTarget.style.gap = '6px')}
                       >
                         Get started with {s.name} <ArrowRight size={14} />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -298,7 +331,7 @@ export default function SolutionPage() {
           </div>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             {solutionCategories.filter(c => c.key !== slug).map(c => (
-              <a key={c.key} href={`/solutions/${c.key}`} style={{
+              <Link key={c.key} href={`/solutions/${c.key}`} style={{
                 padding: '12px 24px',
                 borderRadius: '12px',
                 background: 'rgba(255,255,255,0.03)',
@@ -312,7 +345,7 @@ export default function SolutionPage() {
               >
                 <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--ink)' }}>{c.label}</span>
                 <span style={{ fontSize: '12px', color: 'var(--ink3)' }}>{c.subtitle}</span>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
@@ -328,6 +361,7 @@ export default function SolutionPage() {
           transform: translateY(24px);
           transition: opacity 0.5s ease, transform 0.5s ease;
           background: rgba(14,14,16,0.6);
+          box-sizing: border-box;
         }
         .sol-section-visible {
           opacity: 1;
@@ -337,10 +371,25 @@ export default function SolutionPage() {
           border-color: rgba(255,92,0,0.15) !important;
           box-shadow: 0 0 40px rgba(255,92,0,0.04);
         }
-        @media (max-width: 900px) {
-          .wrap > div[style*="grid-template-columns: 220px"] {
-            grid-template-columns: 1fr !important;
+        /* Desktop 2-col layout with sidebar */
+        .sol-grid {
+          grid-template-columns: 1fr;
+        }
+        @media (min-width: 1024px) {
+          .sol-grid {
+            grid-template-columns: clamp(180px, 20vw, 220px) 1fr;
           }
+        }
+        /* Ensure service cards don't overflow */
+        .sol-section p,
+        .sol-section span,
+        .sol-section li {
+          overflow-wrap: break-word;
+          word-break: break-word;
+        }
+        /* Hide scrollbar on horizontal scroll areas */
+        .sol-scroll-hide::-webkit-scrollbar {
+          display: none;
         }
       `}} />
     </>

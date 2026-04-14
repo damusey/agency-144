@@ -118,10 +118,10 @@ export default function BookPage() {
     <>
       <Navbar />
       <main style={{ minHeight: '100vh', padding: '80px 0' }}>
-        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 1.5fr', gap: '60px', alignItems: 'start' }}>
+        <div className="wrap grid-stack-mob" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 1.5fr', gap: '60px', alignItems: 'start' }}>
           
-          {/* Left Column: Context */}
-          <div style={{ position: 'sticky', top: '120px' }}>
+          {/* Left Column: Context — sticky only on desktop */}
+          <div className="book-context-col">
             <div className="eyebrow" style={{ background: 'rgba(255,92,0,0.1)', color: 'var(--brand)' }}>Discovery Call</div>
             <h1 className="h-section" style={{ fontSize: 'clamp(32px, 4vw, 48px)', textAlign: 'left', margin: '24px 0' }}>
               Let&apos;s locate your <span className="brand-text">bottleneck</span>.
@@ -145,7 +145,7 @@ export default function BookPage() {
             <h2 style={{ fontSize: '24px', fontWeight: 600, color: 'var(--ink)', marginBottom: '32px' }}>Request a Call</h2>
             
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+              <div className="grid-stack-mob" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <label style={{ fontSize: '13px', color: 'var(--ink2)', fontWeight: 500 }}>First Name *</label>
                   <input
@@ -241,6 +241,21 @@ export default function BookPage() {
         </div>
       </main>
       <Footer />
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        /* Left column: NOT sticky on mobile (stacked layout) */
+        .book-context-col {
+          position: relative;
+          z-index: 1;
+        }
+        /* Only sticky when side-by-side on desktop */
+        @media (min-width: 1024px) {
+          .book-context-col {
+            position: sticky;
+            top: 120px;
+          }
+        }
+      `}} />
     </>
   );
 }

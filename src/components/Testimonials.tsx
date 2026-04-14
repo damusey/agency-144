@@ -41,7 +41,7 @@ export default function Testimonials() {
   return (
     <section style={{ padding: '8vw 0 1vw', position: 'relative', overflow: 'hidden' }}>
       
-      <div className="glow-orb" style={{ top: '20%', right: '10%', background: 'radial-gradient(circle, rgba(245,158,11,0.06) 0%, rgba(0,0,0,0) 60%)', width: '800px', height: '800px' }} />
+      <div className="glow-orb" style={{ top: '20%', right: '10%', background: 'radial-gradient(circle, rgba(245,158,11,0.06) 0%, rgba(0,0,0,0) 60%)', width: 'min(800px, 100vw)', height: 'min(800px, 100vw)' }} />
 
       <div style={{ position: 'relative', zIndex: 10 }}>
         <div className="wrap" style={{ textAlign: 'center', marginBottom: '80px' }}>
@@ -52,7 +52,7 @@ export default function Testimonials() {
         {/* Cinematic Auto-Scrolling Conveyor Belt */}
         <div 
           className="marquee-container" 
-          style={{ width: '100%', maxWidth: '100vw', overflow: 'hidden', padding: '20px 0' }}
+          style={{ width: '100%', maxWidth: '100%', overflow: 'hidden', padding: '20px 0' }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -82,13 +82,13 @@ export default function Testimonials() {
                   key={arrayIndex} 
                   className="glass" 
                   style={{ 
-                    padding: '40px', 
+                    padding: 'clamp(24px, 4vw, 40px)', 
                     borderRadius: '24px', 
                     display: 'flex', 
                     flexDirection: 'column', 
                     gap: '24px', 
                     overflow: 'hidden',
-                    width: 'clamp(350px, 30vw, 450px)', // Fixed width to prevent structural snapping
+                    width: 'clamp(min(300px, 85vw), 30vw, 450px)', // Fixed width to prevent structural snapping
                     flexShrink: 0
                   }}
                 >

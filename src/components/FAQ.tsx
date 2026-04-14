@@ -17,7 +17,7 @@ export default function FAQ() {
     <section style={{ padding: '5vw 0', position: 'relative' }}>
       <div className="glow-orb" style={{ top: '50%', right: '-10%', transform: 'translateY(-50%)', background: 'radial-gradient(circle, rgba(255,158,11,0.04) 0%, rgba(0,0,0,0) 60%)' }} />
 
-      <div className="wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: '8vw', alignItems: 'start', position: 'relative', zIndex: 10 }}>
+      <div className="wrap grid-stack-mob" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: '8vw', alignItems: 'start', position: 'relative', zIndex: 10 }}>
         
         {/* Left */}
         <div>
@@ -34,9 +34,9 @@ export default function FAQ() {
           {faqs.map((f, i) => (
             <div key={i} className="glass"
               onClick={() => setOpen(open === i ? null : i)}
-              style={{ borderRadius: '16px', padding: '24px 32px', cursor: 'pointer', transition: 'all 0.3s ease', background: open === i ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.02)', border: open === i ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(255,255,255,0.05)' }}
+              style={{ borderRadius: '16px', padding: 'clamp(18px, 2.5vw, 24px) clamp(20px, 3vw, 32px)', cursor: 'pointer', transition: 'all 0.3s ease', background: open === i ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.02)', border: open === i ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(255,255,255,0.05)' }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: 600, fontSize: '16px', color: 'var(--ink)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: 600, fontSize: 'clamp(14px, 1.5vw, 16px)', color: 'var(--ink)', gap: '12px' }}>
                 {f.q}
                 <ChevronDown size={20} style={{ transform: open === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s', color: open === i ? 'var(--brand)' : 'var(--ink3)' }} />
               </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -178,11 +179,11 @@ export default function FAQPage() {
               <p style={{ fontSize: '14px', color: 'var(--ink3)', marginBottom: '24px' }}>
                 We&apos;ll get back to you within 24 hours. No pitch decks, just a real conversation.
               </p>
-              <a href="/book" style={{ textDecoration: 'none' }}>
+              <Link href="/book" style={{ textDecoration: 'none' }}>
                 <button className="btn btn-primary" style={{ padding: '14px 32px', fontSize: '15px', borderRadius: '12px' }}>
                   Book a free call
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </section>

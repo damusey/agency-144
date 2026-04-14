@@ -116,9 +116,9 @@ export default function AuditPage() {
       <Navbar />
       <main style={{ minHeight: '100vh', padding: '80px 0', position: 'relative', overflow: 'hidden' }}>
         {/* Background glow overlay */}
-        <div className="glow-orb" style={{ top: '30%', right: '-10%', background: 'radial-gradient(circle, rgba(234,88,12,0.08) 0%, rgba(0,0,0,0) 60%)', width: '1000px', height: '1000px' }} />
+        <div className="glow-orb" style={{ top: '30%', right: '-10%', background: 'radial-gradient(circle, rgba(234,88,12,0.08) 0%, rgba(0,0,0,0) 60%)', width: 'min(1000px, 100vw)', height: 'min(1000px, 100vw)' }} />
 
-        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '60px', alignItems: 'center' }}>
+        <div className="wrap grid-stack-mob" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 'clamp(32px, 6vw, 60px)', alignItems: 'center' }}>
           
           {/* Left Column: Context */}
           <div>
@@ -164,7 +164,7 @@ export default function AuditPage() {
           </div>
 
           {/* Right Column: Audit Intake Form */}
-          <div className="glass" style={{ padding: '40px', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.08)', position: 'relative', zIndex: 10 }}>
+          <div className="glass" style={{ padding: 'clamp(24px, 4vw, 40px)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.08)', position: 'relative', zIndex: 10 }}>
             <h2 style={{ fontSize: '24px', fontWeight: 600, color: 'var(--ink)', marginBottom: '32px' }}>Request your teardown</h2>
             
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 import { Phone, Mail, MapPin, ArrowRight, Clock, Send } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 
@@ -109,7 +110,7 @@ export default function ContactPage() {
                     }}
                   >
                     <div style={{
-                      width: '56px',
+                      width: 'min(56px, 100vw)',
                       height: '56px',
                       borderRadius: '16px',
                       background: info.gradient,
@@ -149,12 +150,12 @@ export default function ContactPage() {
         {/* ── Contact Form + Map ─────────────────── */}
         <section style={{ padding: '40px 0 100px', position: 'relative', zIndex: 10 }}>
           <div className="wrap" style={{ maxWidth: '1080px' }}>
-            <div style={{
+            <div className="grid-stack-mob" style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
               gap: '40px',
               alignItems: 'start',
-            }} className="grid-3">
+            }}>
 
               {/* Form */}
               <div style={{
@@ -316,7 +317,7 @@ export default function ContactPage() {
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
                     <div style={{
-                      width: '42px',
+                      width: 'min(42px, 100vw)',
                       height: '42px',
                       borderRadius: '12px',
                       background: 'linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.03))',
@@ -361,7 +362,7 @@ export default function ContactPage() {
                   overflow: 'hidden',
                   border: '1px solid rgba(255,255,255,0.06)',
                   boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
-                  height: '280px',
+                  height: 'min(280px, 100vw)',
                 }}>
                   <iframe
                     title="Oktuv Office Location"
@@ -376,7 +377,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Quick action CTA */}
-                <a href="/book" style={{ textDecoration: 'none' }}>
+                <Link href="/book" style={{ textDecoration: 'none' }}>
                   <div style={{
                     background: 'linear-gradient(135deg, rgba(255,92,0,0.1), rgba(255,92,0,0.03))',
                     border: '1px solid rgba(255,92,0,0.15)',
@@ -409,7 +410,7 @@ export default function ContactPage() {
                       Book Call <ArrowRight size={14} />
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
 
             </div>

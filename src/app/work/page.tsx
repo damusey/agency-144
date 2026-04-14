@@ -38,7 +38,7 @@ export default function WorkPage() {
       <main style={{ minHeight: '100vh', padding: '100px 0 0', background: 'var(--bg)', position: 'relative' }}>
 
         {/* Glow */}
-        <div className="glow-orb" style={{ top: 0, left: '50%', transform: 'translateX(-50%)', background: 'radial-gradient(circle, rgba(255,92,0,0.05) 0%, transparent 70%)', width: '1200px', height: '700px', pointerEvents: 'none' }} />
+        <div className="glow-orb" style={{ top: 0, left: '50%', transform: 'translateX(-50%)', background: 'radial-gradient(circle, rgba(255,92,0,0.05) 0%, transparent 70%)', width: 'min(1200px, 100vw)', height: 'min(700px, 100vw)', pointerEvents: 'none' }} />
 
         {/* ── HERO ── */}
         <section className="wrap" style={{ marginBottom: '80px', position: 'relative', zIndex: 10 }}>
@@ -49,7 +49,7 @@ export default function WorkPage() {
             </span>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'end', gap: '32px', paddingBottom: '40px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+          <div className="grid-stack-mob" style={{ display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'end', gap: '32px', paddingBottom: '40px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
             <div>
               <h1 style={{ fontSize: 'clamp(44px, 5.5vw, 72px)', fontWeight: 700, color: 'var(--ink)', letterSpacing: '-2px', lineHeight: 1.1, margin: '0 0 20px' }}>
                 Proof of <span style={{ color: 'var(--brand)' }}>Execution.</span>
@@ -81,7 +81,7 @@ export default function WorkPage() {
                     border: '1px solid rgba(255,255,255,0.07)',
                     position: 'relative',
                     display: 'grid',
-                    gridTemplateColumns: '340px 1fr',
+                    gridTemplateColumns: 'min(340px, 35vw) 1fr',
                     minHeight: '280px',
                   }}
                 >
@@ -109,7 +109,7 @@ export default function WorkPage() {
                     }} />
                     {/* Right separator */}
                     <div style={{
-                      position: 'absolute', top: 0, right: 0, width: '1px', height: '100%',
+                      position: 'absolute', top: 0, right: 0, width: 'min(1px, 100vw)', height: '100%',
                       background: 'linear-gradient(180deg, transparent, rgba(255,92,0,0.3), transparent)',
                     }} />
 
@@ -193,7 +193,7 @@ export default function WorkPage() {
           box-shadow: 0 0 48px rgba(255,92,0,0.06);
           transition: border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.55s ease, transform 0.55s ease;
         }
-        @media (max-width: 900px) {
+        @media (max-width: 1023px) {
           .work-row { grid-template-columns: 1fr !important; }
         }
       `}} />

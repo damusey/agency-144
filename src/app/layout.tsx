@@ -58,7 +58,9 @@ export default function RootLayout({
       </head>
       <body>
         <ScarcityBar />
-        {children}
+        <div style={{ overflowX: 'clip' }}>
+          {children}
+        </div>
       </body>
     </html>
   );

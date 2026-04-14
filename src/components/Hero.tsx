@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 
 const avatars = [
   { initials: 'RS', bg: '#7C3AED' },
@@ -73,12 +74,12 @@ export default function Hero() {
 
         {/* CTA */}
         <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '40px', animation: 'fadeUp 0.5s ease 0.3s both' }}>
-          <a href="/audit" style={{ textDecoration: 'none' }}><button className="btn btn-primary" style={{ fontSize: '15px', padding: '16px 36px', borderRadius: '100px', boxShadow: '0 4px 20px rgba(255,92,0,0.3)' }}
+          <Link href="/audit" style={{ textDecoration: 'none' }}><button className="btn btn-primary" style={{ fontSize: '15px', padding: '16px 36px', borderRadius: '100px', boxShadow: '0 4px 20px rgba(255,92,0,0.3)' }}
             onMouseEnter={e => { const b = e.currentTarget; b.style.background = 'var(--brand-d)'; b.style.transform = 'translateY(-2px) scale(1.02)'; }}
             onMouseLeave={e => { const b = e.currentTarget; b.style.background = 'var(--brand)'; b.style.transform = 'translateY(0) scale(1)'; }}
           >
             Get our free growth audit <ArrowRight size={16} style={{ marginLeft: '4px' }}/>
-          </button></a>
+          </button></Link>
         </div>
 
         {/* Trust */}

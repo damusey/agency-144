@@ -53,10 +53,10 @@ export default function ServicesSection() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="services" style={{ padding: '3vw 0 8vw', position: 'relative', minHeight: '800px' }}>
+    <section id="services" style={{ padding: '3vw 0 8vw', position: 'relative' }}>
       
       {/* Background glow */}
-      <div className="glow-orb" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${services[activeTab].bg}15 0%, rgba(0,0,0,0) 60%)`, width: '1000px', height: '1000px', transition: 'background 0.5s ease' }} />
+      <div className="glow-orb" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: `radial-gradient(circle, ${services[activeTab].bg}15 0%, rgba(0,0,0,0) 60%)`, width: 'min(1000px, 100vw)', height: 'min(1000px, 100vw)', transition: 'background 0.5s ease' }} />
 
       <div className="wrap" style={{ position: 'relative', zIndex: 10 }}>
         
@@ -67,7 +67,7 @@ export default function ServicesSection() {
         </div>
 
         {/* ── Diagnostic Pills ── */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px', maxWidth: '900px', margin: '0 auto 80px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px', maxWidth: '900px', margin: '0 auto clamp(40px, 8vw, 80px)' }}>
           {services.map((s, i) => {
             const isActive = activeTab === i;
             return (
@@ -75,9 +75,9 @@ export default function ServicesSection() {
                 key={i}
                 onClick={() => setActiveTab(i)}
                 style={{
-                  padding: '12px 24px',
+                  padding: 'clamp(8px, 1.5vw, 12px) clamp(14px, 2.5vw, 24px)',
                   borderRadius: '100px',
-                  fontSize: '15px',
+                  fontSize: 'clamp(12px, 1.4vw, 15px)',
                   fontWeight: isActive ? 600 : 500,
                   transition: 'all 0.3s ease',
                   border: `1px solid ${isActive ? s.bg + '50' : 'rgba(255,255,255,0.1)'}`,
@@ -98,56 +98,18 @@ export default function ServicesSection() {
 
           {/* ── Carousel Left Arrow ── */}
           <button
+            className="svc-arrow svc-arrow-left"
             onClick={() => setActiveTab((activeTab - 1 + services.length) % services.length)}
-            style={{
-              position: 'absolute',
-              left: '-60px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              zIndex: 20,
-              width: 44,
-              height: 44,
-              borderRadius: '50%',
-              background: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(12px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              color: 'var(--ink2)',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = 'var(--ink2)'; e.currentTarget.style.transform = 'translateY(-50%) scale(1)'; }}
+            aria-label="Previous service"
           >
             <ChevronLeft size={20} />
           </button>
 
           {/* ── Carousel Right Arrow ── */}
           <button
+            className="svc-arrow svc-arrow-right"
             onClick={() => setActiveTab((activeTab + 1) % services.length)}
-            style={{
-              position: 'absolute',
-              right: '-60px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              zIndex: 20,
-              width: 44,
-              height: 44,
-              borderRadius: '50%',
-              background: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(12px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              color: 'var(--ink2)',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = 'var(--ink2)'; e.currentTarget.style.transform = 'translateY(-50%) scale(1)'; }}
+            aria-label="Next service"
           >
             <ChevronRight size={20} />
           </button>
@@ -158,12 +120,12 @@ export default function ServicesSection() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="glass"
+              className="glass grid-stack-mob"
               style={{
                 borderRadius: '32px',
-                padding: 'clamp(24px, 3vw, 48px) clamp(40px, 5vw, 64px)',
+                padding: 'clamp(20px, 3vw, 48px) clamp(20px, 5vw, 64px)',
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))',
                 gap: '60px',
                 alignItems: 'center',
                 boxShadow: `0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 60px ${services[activeTab].bg}10`,
@@ -200,13 +162,13 @@ export default function ServicesSection() {
 
               {/* Left Column: The Core */}
               <div style={{ position: 'relative', zIndex: 2 }}>
-                <div style={{ width: 72, height: 72, borderRadius: '20px', background: services[activeTab].bg, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '32px', boxShadow: `0 10px 30px -5px ${services[activeTab].bg}`, border: '1px solid rgba(255,255,255,0.2)' }}>
+                <div style={{ width: 'clamp(52px, 8vw, 72px)', height: 'clamp(52px, 8vw, 72px)', borderRadius: '20px', background: services[activeTab].bg, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 'clamp(20px, 3vw, 32px)', boxShadow: `0 10px 30px -5px ${services[activeTab].bg}`, border: '1px solid rgba(255,255,255,0.2)' }}>
                   {services[activeTab].icon}
                 </div>
                 <h3 style={{ fontSize: 'clamp(32px, 4vw, 42px)', fontWeight: 800, color: '#fff', marginBottom: '20px', letterSpacing: '-1px', lineHeight: 1.1 }}>
                   {services[activeTab].title}
                 </h3>
-                <p style={{ fontSize: '18px', color: 'var(--ink2)', lineHeight: 1.6, marginBottom: '40px' }}>
+                <p style={{ fontSize: 'clamp(15px, 1.5vw, 18px)', color: 'var(--ink2)', lineHeight: 1.6, marginBottom: 'clamp(24px, 4vw, 40px)' }}>
                   {services[activeTab].desc}
                 </p>
                 <button className="btn btn-primary" style={{ background: services[activeTab].bg, boxShadow: `0 4px 20px ${services[activeTab].bg}40` }}>
@@ -215,7 +177,7 @@ export default function ServicesSection() {
               </div>
 
               {/* Right Column: The Deliverables */}
-              <div style={{ position: 'relative', zIndex: 2, background: 'rgba(0,0,0,0.3)', padding: '40px', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.06)', backdropFilter: 'blur(12px)' }}>
+              <div style={{ position: 'relative', zIndex: 2, background: 'rgba(0,0,0,0.3)', padding: 'clamp(24px, 4vw, 40px)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.06)', backdropFilter: 'blur(12px)' }}>
                 <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--ink3)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '24px' }}>
                   What you actually get:
                 </div>

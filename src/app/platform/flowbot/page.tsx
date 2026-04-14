@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
@@ -118,7 +119,7 @@ export default function FlowBotPage() {
         {/* ══════════════════════════════════════════════
             HERO + CHAT MOCKUP
            ══════════════════════════════════════════════ */}
-        <section style={{ padding: '100px 0 32px', position: 'relative', zIndex: 10 }}>
+        <section style={{ padding: 'clamp(60px, 10vw, 100px) 0 32px', position: 'relative', zIndex: 10 }}>
           <div className="wrap">
             <div className="fb-hero-grid">
               {/* Left — copy */}
@@ -135,11 +136,11 @@ export default function FlowBotPage() {
                   FlowBot helps businesses sell more, support faster, and keep customers coming back — with intelligent chatbots on WhatsApp, web, and apps.
                 </p>
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-                  <a href="/book" style={{ textDecoration: 'none' }}>
+                  <Link href="/book" style={{ textDecoration: 'none' }}>
                     <button className="btn btn-primary fb-hero-btn">
                       Get Your Bot Live <ArrowRight size={16} />
                     </button>
-                  </a>
+                  </Link>
                   <span style={{ fontSize: '13px', color: 'var(--ink3)' }}>48hr setup · No code</span>
                 </div>
               </div>
@@ -287,11 +288,11 @@ export default function FlowBotPage() {
             </div>
 
             <div style={{ textAlign: 'center', marginTop: '48px' }}>
-              <a href="/book" style={{ textDecoration: 'none' }}>
+              <Link href="/book" style={{ textDecoration: 'none' }}>
                 <button className="btn btn-primary fb-cta-pulse" style={{ padding: '14px 32px', fontSize: '15px', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                   Start Your Setup <ArrowRight size={16} />
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -354,11 +355,11 @@ export default function FlowBotPage() {
             <p style={{ fontSize: '16px', color: 'var(--ink2)', lineHeight: 1.6, marginBottom: '32px' }}>
               Book a free 15-minute call. We&apos;ll have your bot live within 48 hours.
             </p>
-            <a href="/book" style={{ textDecoration: 'none' }}>
+            <Link href="/book" style={{ textDecoration: 'none' }}>
               <button className="btn btn-primary fb-cta-pulse" style={{ padding: '16px 40px', fontSize: '16px', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '8px', boxShadow: '0 8px 30px rgba(255,92,0,0.3)' }}>
                 Get Your Bot Live <ArrowRight size={18} />
               </button>
-            </a>
+            </Link>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginTop: '20px', flexWrap: 'wrap' }}>
               {['No coding needed', 'Live in 48 hours', 'Cancel anytime'].map(t => (
                 <div key={t} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: 'var(--ink3)' }}>
@@ -576,14 +577,35 @@ export default function FlowBotPage() {
         .fb-cta-pulse { animation:fbCtaPulse 2.5s ease-in-out infinite; }
         @keyframes fbCtaPulse { 0%,100%{box-shadow:0 8px 30px rgba(255,92,0,0.3);} 50%{box-shadow:0 8px 50px rgba(255,92,0,0.5);} }
 
-        /* ── MOBILE ── */
-        @media (max-width:768px) {
+        /* ── RESPONSIVE (<1024px) ── */
+        @media (max-width:1023px) {
           .fb-hero-grid { grid-template-columns:1fr!important; }
           .fb-chat-mockup { max-width:340px; margin:0 auto; }
           .fb-stats-bar { grid-template-columns:repeat(2,1fr)!important; }
           .fb-usecase-grid { grid-template-columns:1fr!important; }
           .fb-channel-grid { grid-template-columns:1fr!important; }
           .fb-benefit-grid { grid-template-columns:repeat(2,1fr)!important; }
+        }
+
+        /* ── RESPONSIVE (<665px Small Mobile) ── */
+        @media (max-width:665px) {
+          .fb-hero-title { font-size:clamp(26px,7vw,36px)!important; letter-spacing:-1px; }
+          .fb-hero-sub { font-size:14px!important; }
+          .fb-chat-mockup { max-width:100%!important; }
+          .fb-stat-val { font-size:28px!important; }
+          .fb-stat-label { font-size:11px!important; }
+          .fb-benefit-grid { grid-template-columns:1fr!important; }
+          .fb-heading { font-size:24px!important; }
+          .fb-usecase-card { padding:20px 18px!important; }
+          .fb-channel-card { padding:24px 18px!important; }
+          .fb-benefit-card { padding:22px 18px!important; }
+          .fb-timeline-row { grid-template-columns:48px 1fr!important; gap:14px; }
+          .fb-timeline-node { width:48px!important; height:48px!important; font-size:16px!important; }
+          .fb-timeline-line { left:23px!important; }
+          .fb-timeline-title { font-size:17px!important; }
+          .fb-timeline-desc { font-size:14px!important; }
+          .fb-faq-btn { padding:16px 18px!important; font-size:14px!important; }
+          .fb-faq-answer-inner { padding:0 18px 16px!important; font-size:13px!important; }
         }
       `}} />
     </>

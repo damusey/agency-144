@@ -2,6 +2,7 @@
 
 import { X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const shimmerStyle = `
   @keyframes scarcityShimmer {
@@ -48,8 +49,8 @@ export default function ScarcityBar() {
           background: '#0D0D0F',
           color: 'rgba(255,255,255,0.7)',
           textAlign: 'center',
-          padding: '10px 48px',
-          fontSize: '12.5px',
+          padding: 'clamp(8px, 1.5vw, 10px) clamp(36px, 5vw, 48px)',
+          fontSize: 'clamp(11px, 1.2vw, 12.5px)',
           fontWeight: 400,
           letterSpacing: '0.2px',
           position: 'relative',
@@ -62,7 +63,7 @@ export default function ScarcityBar() {
         </span>
         {' '}— We cap clients to protect quality.{' '}
         <span className="scarcity-animated" style={{ cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
-          <a href="/book" style={{ color: 'inherit', textDecoration: 'none' }}>Book your free call now →</a>
+          <Link href="/book" style={{ color: 'inherit', textDecoration: 'none' }}>Book your free call now →</Link>
         </span>
         <button
           onClick={() => setVisible(false)}

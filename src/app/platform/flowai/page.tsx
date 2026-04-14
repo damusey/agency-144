@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
@@ -99,7 +100,7 @@ export default function FlowAIPage() {
         <div className="fai-glow-orb" />
 
         {/* ── HERO ── */}
-        <section style={{ padding: '100px 0 32px', position: 'relative', zIndex: 10 }}>
+        <section style={{ padding: 'clamp(60px, 10vw, 100px) 0 32px', position: 'relative', zIndex: 10 }}>
           <div className="wrap" style={{ maxWidth: '860px' }}>
             <div className="fai-hero-badge">
               <Zap size={13} color="var(--brand)" />
@@ -113,11 +114,11 @@ export default function FlowAIPage() {
               FlowAI replaces analyst requests, dashboard backlogs, and stale reports with a single intelligent layer that answers any data question in seconds.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-              <a href="/book" style={{ textDecoration: 'none' }}>
+              <Link href="/book" style={{ textDecoration: 'none' }}>
                 <button className="btn btn-primary" style={{ padding: '14px 32px', fontSize: '15px', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   Request a Demo <ArrowRight size={16} />
                 </button>
-              </a>
+              </Link>
               <span style={{ fontSize: '13px', color: 'var(--ink3)' }}>Free strategy consultation included</span>
             </div>
           </div>
@@ -271,7 +272,7 @@ export default function FlowAIPage() {
               <div className="fai-label">See it in action</div>
               <h2 className="fai-heading">Real questions. Real answers.</h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+            <div className="grid-stack-mob" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
               {useCases.map(uc => (
                 <div key={uc.role} className="fai-query-card">
                   <div className="fai-query-role">{uc.role}</div>
@@ -493,8 +494,8 @@ export default function FlowAIPage() {
           font-size:13px; color:var(--ink2); font-weight:500; white-space:nowrap;
         }
 
-        /* ── MOBILE ── */
-        @media (max-width:768px) {
+        /* ── RESPONSIVE (<1024px) ── */
+        @media (max-width:1023px) {
           .fai-stats-bar { grid-template-columns:repeat(2,1fr)!important; }
           .fai-steps-grid { grid-template-columns:1fr!important; gap:32px; }
           .fai-steps-line { display:none; }
@@ -504,6 +505,29 @@ export default function FlowAIPage() {
           .fai-engine-row { grid-template-columns:56px 1fr!important; gap:16px; }
           .fai-engine-num { font-size:36px; }
           .fai-engine-row::before { left:-12px; }
+        }
+
+        /* ── RESPONSIVE (<665px Small Mobile) ── */
+        @media (max-width:665px) {
+          .fai-hero-title { font-size:clamp(26px,7vw,36px)!important; letter-spacing:-1px; }
+          .fai-hero-sub { font-size:14px!important; max-width:100%!important; }
+          .fai-stat-val { font-size:28px!important; }
+          .fai-stat-label { font-size:11px!important; }
+          .fai-heading { font-size:24px!important; }
+          .fai-subtext { font-size:13px!important; max-width:100%!important; }
+          .fai-benefits-grid { grid-template-columns:1fr!important; }
+          .fai-benefit-card { padding:22px 18px!important; }
+          .fai-step-circle { width:72px!important; height:72px!important; }
+          .fai-step-title { font-size:16px!important; }
+          .fai-step-desc { font-size:12.5px!important; }
+          .fai-agent-card > div[style] { padding:24px 20px!important; }
+          .fai-agent-metric-val { font-size:30px!important; }
+          .fai-engine-row { grid-template-columns:40px 1fr!important; gap:12px; padding:24px 0!important; }
+          .fai-engine-num { font-size:28px!important; }
+          .fai-engine-title { font-size:17px!important; }
+          .fai-engine-desc { font-size:13px!important; }
+          .fai-query-card { padding:18px!important; }
+          .fai-query-text { font-size:13px!important; padding:10px 12px!important; }
         }
       `}} />
     </>

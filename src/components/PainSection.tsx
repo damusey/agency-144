@@ -78,13 +78,13 @@ export default function PainSection() {
     <section style={{ padding: '8vw 0 3vw', position: 'relative', overflow: 'hidden' }}>
       
       {/* Danger/Urgency Glows */}
-      <div className="glow-orb" style={{ right: '-10%', top: '30%', background: 'radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, rgba(0,0,0,0) 60%)', width: '800px', height: '800px' }} />
-      <div className="glow-orb" style={{ left: '-5%', bottom: '-10%', background: 'radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, rgba(0,0,0,0) 60%)', width: '600px', height: '600px' }} />
+      <div className="glow-orb" style={{ right: '-10%', top: '30%', background: 'radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, rgba(0,0,0,0) 60%)', width: 'min(800px, 100vw)', height: 'min(800px, 100vw)' }} />
+      <div className="glow-orb" style={{ left: '-5%', bottom: '-10%', background: 'radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, rgba(0,0,0,0) 60%)', width: 'min(600px, 100vw)', height: 'min(600px, 100vw)' }} />
 
       <div className="wrap" style={{ position: 'relative', zIndex: 10 }}>
         
         {/* Header Block */}
-        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 8vw, 80px)' }}>
           <div className="eyebrow" style={{ background: 'rgba(239, 68, 68, 0.1)', color: '#EF4444' }}>Diagnosis</div>
           <h2 className="h-section">If you&apos;re nodding, we need to talk.</h2>
           <p className="lead" style={{ margin: '0 auto' }}>
@@ -119,10 +119,10 @@ export default function PainSection() {
             <div style={{ width: 44 }} /> {/* purely visual spacer to counterbalance MacOS dots */}
           </div>
 
-          <div className="flex flex-col md:flex-row min-h-[400px]">
+          <div className="flex flex-col lg:flex-row min-h-[400px]">
              
              {/* Left Nav Bar */}
-             <div className="w-full md:w-[320px] flex md:flex-col overflow-x-auto md:overflow-x-hidden border-b md:border-b-0 md:border-r border-white/5" style={{ background: 'rgba(255,255,255,0.01)' }}>
+             <div className="w-full lg:w-[280px] flex lg:flex-col overflow-x-auto lg:overflow-x-hidden border-b lg:border-b-0 lg:border-r border-white/5 shrink-0" style={{ background: 'rgba(255,255,255,0.01)' }}>
                {painPoints.map((p, i) => {
                  const isActive = activeTab === i;
                  return (
@@ -130,7 +130,7 @@ export default function PainSection() {
                      key={i} 
                      onClick={() => setActiveTab(i)}
                      style={{ 
-                       padding: '20px 24px', 
+                       padding: 'clamp(14px, 2vw, 20px) clamp(16px, 2.5vw, 24px)', 
                        cursor: 'pointer',
                        borderLeft: `3px solid ${isActive ? '#EF4444' : 'transparent'}`,
                        background: isActive ? 'linear-gradient(90deg, rgba(239, 68, 68, 0.1) 0%, transparent 100%)' : 'transparent',
@@ -151,7 +151,7 @@ export default function PainSection() {
              </div>
 
              {/* Right Display Monitor */}
-             <div className="flex-1 flex" style={{ padding: 'clamp(24px, 3vw, 48px) clamp(40px, 6vw, 80px)', background: 'linear-gradient(to bottom right, rgba(0,0,0,0.2), rgba(0,0,0,0.5))', position: 'relative', overflow: 'hidden' }}>
+             <div className="flex-1 flex" style={{ padding: 'clamp(20px, 3vw, 48px) clamp(20px, 5vw, 80px)', background: 'linear-gradient(to bottom right, rgba(0,0,0,0.2), rgba(0,0,0,0.5))', position: 'relative', overflow: 'hidden' }}>
                
                {/* Dynamic themed background */}
                <AnimatePresence mode="wait">
@@ -199,18 +199,18 @@ export default function PainSection() {
                      Detected Issue
                    </div>
 
-                   <h3 style={{ fontSize: 'clamp(28px, 3vw, 42px)', fontWeight: 800, color: '#fff', marginBottom: '24px', letterSpacing: '-1px', lineHeight: 1.15 }}>
+                   <h3 style={{ fontSize: 'clamp(22px, 5vw, 42px)', fontWeight: 800, color: '#fff', marginBottom: 'clamp(16px, 3vw, 24px)', letterSpacing: '-1px', lineHeight: 1.15 }}>
                      {painPoints[activeTab].problem}
                    </h3>
 
-                   <p style={{ fontSize: 'clamp(16px, 1.5vw, 18px)', color: 'var(--ink2)', lineHeight: 1.6, maxWidth: '600px', marginBottom: '48px' }}>
+                   <p style={{ fontSize: 'clamp(14px, 1.5vw, 18px)', color: 'var(--ink2)', lineHeight: 1.6, maxWidth: '600px', marginBottom: 'clamp(28px, 5vw, 48px)' }}>
                      {painPoints[activeTab].desc}
                    </p>
 
                    {/* Solution Pill */}
-                   <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                     <div style={{ width: '40px', height: '1px', background: 'var(--border)' }} />
-                     <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '15px', fontWeight: 600, color: 'var(--brand)', background: 'rgba(255,92,0,0.1)', padding: '10px 24px', borderRadius: '100px', border: '1px solid rgba(255,92,0,0.15)' }}>
+                   <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(8px, 2vw, 16px)', flexWrap: 'wrap' }}>
+                     <div className="mobile-hide" style={{ width: 'min(40px, 100vw)', height: '1px', background: 'var(--border)' }} />
+                     <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: 'clamp(13px, 1.3vw, 15px)', fontWeight: 600, color: 'var(--brand)', background: 'rgba(255,92,0,0.1)', padding: 'clamp(8px, 1vw, 10px) clamp(16px, 2vw, 24px)', borderRadius: '100px', border: '1px solid rgba(255,92,0,0.15)' }}>
                        <ArrowRight size={16} strokeWidth={2.5} /> We align: {painPoints[activeTab].fix}
                      </div>
                    </div>
