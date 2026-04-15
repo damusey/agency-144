@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import ScarcityBar from "@/components/ScarcityBar";
 
@@ -69,6 +70,16 @@ export default function RootLayout({
 
       </head>
       <body>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YVKWT6KRB0" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-YVKWT6KRB0');
+          `}
+        </Script>
         <ScarcityBar />
         <div style={{ overflowX: 'clip' }}>
           {children}
