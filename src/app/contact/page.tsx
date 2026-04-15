@@ -5,15 +5,33 @@ import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, ArrowRight, Clock, Send } from 'lucide-react';
 import { useState, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:info@oktuvglobal.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
-    window.location.href = mailtoLink;
+    setStatus('sending');
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_CONTACT!,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      );
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch {
+      setStatus('error');
+    }
   };
 
   const contactInfo = [
@@ -285,6 +303,7 @@ export default function ContactPage() {
 
                   <button
                     type="submit"
+                    disabled={status === 'sending'}
                     className="btn btn-primary"
                     style={{
                       width: '100%',
@@ -297,10 +316,23 @@ export default function ContactPage() {
                       justifyContent: 'center',
                       gap: '8px',
                       marginTop: '4px',
+                      opacity: status === 'sending' ? 0.6 : 1,
+                      cursor: status === 'sending' ? 'not-allowed' : 'pointer',
                     }}
                   >
-                    <Send size={16} /> Send Message
+                    <Send size={16} /> {status === 'sending' ? 'Sending…' : 'Send Message'}
                   </button>
+
+                  {status === 'success' && (
+                    <p style={{ fontSize: '14px', color: '#22C55E', textAlign: 'center', marginTop: '8px' }}>
+                      ✓ Your message has been sent. We&apos;ll get back to you within 24 hours.
+                    </p>
+                  )}
+                  {status === 'error' && (
+                    <p style={{ fontSize: '14px', color: '#EF4444', textAlign: 'center', marginTop: '8px' }}>
+                      Something went wrong. Please try again or email us directly.
+                    </p>
+                  )}
                 </form>
               </div>
 
