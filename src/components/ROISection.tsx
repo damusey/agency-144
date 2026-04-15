@@ -27,9 +27,9 @@ export default function ROISection() {
             <p className="lead" style={{ marginBottom: '32px' }}>
               Not vanity metrics. Not pretty reports. These are the outcomes our clients see in the first 90 days.
             </p>
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            {/* <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <button className="btn btn-outline" style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(12px)' }}>Talk to a founder</button>
-            </div>
+            </div> */}
           </div>
 
           {/* Right */}
