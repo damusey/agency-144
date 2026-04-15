@@ -17,7 +17,7 @@ export default function ContactPage() {
     setStatus('sending');
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_CONTACT_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_CONTACT!,
         {
           name: formData.name,
@@ -25,9 +25,10 @@ export default function ContactPage() {
           subject: formData.subject,
           message: formData.message,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+        process.env.NEXT_PUBLIC_CONTACT_EMAILJS_PUBLIC_KEY!,
       );
       setStatus('success');
+
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch {
       setStatus('error');
