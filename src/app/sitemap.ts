@@ -1,17 +1,13 @@
 import type { MetadataRoute } from 'next';
+import { solutionCategories } from '@/data/solutions';
 
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.oktuvglobal.com';
 
-  // Solution slugs — add new ones here as you create them
-  const solutionSlugs = [
-    'web-development',
-    'ai-automation',
-    'performance-marketing',
-    'design',
-  ];
+  // Dynamically pull the correct slugs from the data file
+  const solutionSlugs = solutionCategories.map(c => c.key);
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
