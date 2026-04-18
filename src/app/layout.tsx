@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import ScarcityBar from "@/components/ScarcityBar";
+import Chatbot from "@/components/Chatbot";
 
 const SITE_URL = 'https://www.oktuvglobal.com';
 
@@ -84,6 +85,7 @@ export default function RootLayout({
         <div style={{ overflowX: 'clip' }}>
           {children}
         </div>
+        <Chatbot />
       </body>
     </html>
   );
