@@ -49,13 +49,7 @@ export default function BlogListingPage() {
               <div className="glass rounded-[24px] lg:rounded-[32px] overflow-hidden spotlight-container hover:-translate-y-1 hover:shadow-[0_24px_64px_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,92,0,0.2)]" style={{ padding: '2px', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}>
                 <div className="spotlight-card rounded-[22px] lg:rounded-[30px] p-8 lg:p-12 h-full flex flex-col lg:flex-row gap-10 lg:gap-16 items-center" style={{ background: 'rgba(10,10,11,0.6)' }}>
                   
-                  {/* Fake Image Area for visual pop */}
-                  <div className="w-full lg:w-5/12 aspect-[4/3] rounded-2xl relative overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(255,92,0,0.15) 0%, rgba(20,20,22,1) 100%)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Sparkles size={64} color="var(--brand)" style={{ opacity: 0.3 }} />
-                    </div>
-                  </div>
-
+                  {/* Text Content (Left Side) */}
                   <div className="w-full lg:w-7/12 flex flex-col">
                     <div className="flex flex-wrap items-center gap-4 mb-4">
                       <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider" style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--ink2)' }}>{featuredPost.category}</span>
@@ -79,6 +73,17 @@ export default function BlogListingPage() {
                       Read full article <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
+
+                  {/* Image Area (Right Side) */}
+                  <div className="w-full lg:w-5/12 aspect-[4/3] rounded-2xl relative overflow-hidden group-hover:opacity-90 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(255,92,0,0.15) 0%, rgba(20,20,22,1) 100%)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img 
+                      src="/blog/featured-acquisition.webp" 
+                      alt={featuredPost.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+
                 </div>
               </div>
             </Link>
