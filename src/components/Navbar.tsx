@@ -10,6 +10,7 @@ export const navLinks = [
   { name: 'Solutions', href: '/#services' },
   { name: 'Platform', href: '/platform/flowai' },
   { name: 'Work', href: '/work' },
+  { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
   { name: 'FAQ', href: '/faq' },
 ];
@@ -263,6 +264,13 @@ export default function Navbar() {
                 style={{ fontSize: '16px', padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', color: 'var(--ink)', textDecoration: 'none', fontWeight: 600, border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
                 onClick={() => setMenuOpen(false)}>
                 Work
+                <ArrowRight size={16} color="var(--ink3)" />
+              </Link>
+
+              <Link href="/blog"
+                style={{ fontSize: '16px', padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', color: 'var(--ink)', textDecoration: 'none', fontWeight: 600, border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+                onClick={() => setMenuOpen(false)}>
+                Blog
                 <ArrowRight size={16} color="var(--ink3)" />
               </Link>
 

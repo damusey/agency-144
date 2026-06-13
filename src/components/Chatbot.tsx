@@ -1,22 +1,19 @@
 'use client';
 
-import { MessageSquare, X, Send, Sparkles, ChevronLeft } from 'lucide-react';
+import { MessageSquare, X, Sparkles, ChevronLeft, ArrowRight } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
 type Message = { role: 'user' | 'assistant', content: string };
-
-const SUGGESTIONS = [
-  "What services do you offer?",
-  "How much does it cost?",
-  "Book a Free Call"
-];
+type Step = 'welcome' | 'services' | 'pricing';
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([
+    { role: 'assistant', content: "BOOM! 👋 Welcome to Oktuv. I'm here to get you to the right place quickly. What are you looking for today? 🚀" }
+  ]);
+  const [currentStep, setCurrentStep] = useState<Step>('welcome');
+  const [isTyping, setIsTyping] = useState(false);
 
   // Form State
   const [showForm, setShowForm] = useState(false);
@@ -30,11 +27,8 @@ export default function Chatbot() {
 
   useEffect(() => {
     setMounted(true);
-    // Show tooltip 1 second after landing
     const t = setTimeout(() => setShowTooltip(true), 1000);
-    // Stop bouncing after 4 seconds
     const b = setTimeout(() => setIsBouncing(false), 4000);
-    // Hide tooltip automatically after 7 seconds to keep UX clean
     const h = setTimeout(() => setShowTooltip(false), 7000);
 
     return () => {
@@ -46,162 +40,86 @@ export default function Chatbot() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Typewriter refs — must be declared before early return to satisfy React hooks rules
-  const typewriterBuffer = useRef('');
-  const typewriterDone = useRef(false);
-  const typewriterRunning = useRef(false);
-
-  // Auto-scroll to bottom of chat smoothly
   useEffect(() => {
     if (mounted) {
       messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages, isLoading, showForm, mounted]);
+  }, [messages, isTyping, showForm, mounted]);
 
   if (!mounted) return null;
 
-  // Typewriter renderer — reads from the buffer and reveals chars one at a time
-  const startTypewriter = () => {
-    if (typewriterRunning.current) return;
-    typewriterRunning.current = true;
-
-    let charIndex = 0;
-    const tick = () => {
-      const fullText = typewriterBuffer.current;
-
-      if (charIndex < fullText.length) {
-        // Reveal 1 character per tick for a clear typewriter feel
-        charIndex++;
-        const visibleText = fullText.slice(0, charIndex);
-
-        setMessages(prev => {
-          const updated = [...prev];
-          const lastIdx = updated.length - 1;
-          if (updated[lastIdx]?.role === 'assistant') {
-            updated[lastIdx] = { ...updated[lastIdx], content: visibleText };
-          }
-          return updated;
-        });
-
-        setTimeout(tick, 30);
-      } else if (typewriterDone.current) {
-        // Stream finished and we've rendered everything
-        typewriterRunning.current = false;
-        setIsLoading(false);
-      } else {
-        // Buffer is caught up but stream is still going — poll again shortly
-        setTimeout(tick, 50);
-      }
-    };
-
-    tick();
+  const delayResponse = (reply: string, nextStep?: Step) => {
+    setIsTyping(true);
+    setTimeout(() => {
+      setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
+      setIsTyping(false);
+      if (nextStep) setCurrentStep(nextStep);
+    }, 800);
   };
 
-  const sendMessage = async (userMsg: string) => {
-    if (!userMsg.trim() || isLoading) return;
+  const handleOptionClick = (optionLabel: string, action: () => void) => {
+    setMessages(prev => [...prev, { role: 'user', content: optionLabel }]);
+    action();
+  };
 
-    setInput('');
-    const newMessages: Message[] = [...messages, { role: 'user', content: userMsg }];
-    setMessages(newMessages);
-    setIsLoading(true);
-
-    // Reset typewriter state
-    typewriterBuffer.current = '';
-    typewriterDone.current = false;
-    typewriterRunning.current = false;
-
-    // Append an empty assistant message that we will "type" into
-    setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
-
-    try {
-      const res = await fetch('/api/chat/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: newMessages })
-      });
-
-      if (!res.ok) {
-        const errText = await res.text();
-        throw new Error(`API Error ${res.status}: ${errText}`);
-      }
-
-      if (!res.body) throw new Error('No stream body available.');
-
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let done = false;
-      let sseBuffer = '';
-
-      while (!done) {
-        const { value, done: readerDone } = await reader.read();
-        done = readerDone;
-        if (value) {
-          sseBuffer += decoder.decode(value, { stream: true });
-          const parts = sseBuffer.split('\n');
-          sseBuffer = parts.pop() || '';
-
-          for (const line of parts) {
-            const trimmedLine = line.trim();
-            if (!trimmedLine || !trimmedLine.startsWith('data: ')) continue;
-
-            const dataStr = trimmedLine.replace('data: ', '').trim();
-            if (dataStr === '[DONE]') continue;
-
-            try {
-              const data = JSON.parse(dataStr);
-              const textPart = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-              if (textPart) {
-                // Feed text into the typewriter buffer instead of rendering directly
-                typewriterBuffer.current += textPart;
-                // Kick off the typewriter on the first chunk
-                startTypewriter();
-              }
-            } catch (e) {
-              console.error("Error parsing chunk:", dataStr, e);
-            }
-          }
+  const optionsMap = {
+    welcome: [
+      {
+        label: 'Our Services',
+        action: () => delayResponse(
+          "We scale ambitious brands. We specialize in Performance Marketing, AI Automation, Web Development, and Custom SaaS. Want to discuss a specific project?",
+          'services'
+        )
+      },
+      {
+        label: 'Pricing & Costs',
+        action: () => delayResponse(
+          "Our pricing scales with your needs. We offer flexible monthly retainers for growth marketing and fixed-scope pricing for development and AI agents. Want a custom quote?",
+          'pricing'
+        )
+      },
+      {
+        label: 'Connect with us on Whatsapp',
+        action: () => {
+          delayResponse("Great! Opening WhatsApp to connect with our growth experts instantly.");
+          setTimeout(() => window.open('https://wa.me/919872409304', '_blank'), 1200);
         }
       }
-
-      // Final flush of any remaining SSE data in the buffer
-      if (sseBuffer.trim()) {
-        const line = sseBuffer.trim();
-        if (line.startsWith('data: ')) {
-          const dataStr = line.replace('data: ', '').trim();
-          try {
-            const data = JSON.parse(dataStr);
-            const textPart = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-            if (textPart) {
-              typewriterBuffer.current += textPart;
-            }
-          } catch (e) { }
+    ],
+    services: [
+      {
+        label: 'Connect with us on Whatsapp',
+        action: () => {
+          delayResponse("Perfect! Let's chat on WhatsApp.");
+          setTimeout(() => window.open('https://wa.me/919872409304', '_blank'), 1200);
         }
+      },
+      {
+        label: 'Book a Call',
+        action: () => setShowForm(true)
+      },
+      {
+        label: 'Back to Start',
+        action: () => delayResponse("No problem! What else can I help you with?", 'welcome')
       }
-
-      // Signal that the stream is complete — typewriter will finish on its own
-      typewriterDone.current = true;
-
-    } catch (error) {
-      console.error(error);
-      typewriterDone.current = true;
-      typewriterRunning.current = false;
-      setMessages(prev => [...prev.slice(0, -1), { role: 'assistant', content: 'Ah, I hit a slight connection error! 😬 Try sending that again?' }]);
-      setIsLoading(false);
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    sendMessage(input);
-  };
-
-  const handleSuggestionClick = (suggestion: string) => {
-    if (suggestion === 'Book a Free Call') {
-      setShowForm(true);
-    } else {
-      sendMessage(suggestion);
-    }
+    ],
+    pricing: [
+      {
+        label: 'Connect with us on Whatsapp',
+        action: () => {
+          delayResponse("Perfect! We can discuss custom quotes on WhatsApp.");
+          setTimeout(() => window.open('https://wa.me/919872409304', '_blank'), 1200);
+        }
+      },
+      {
+        label: 'Get a Custom Quote',
+        action: () => setShowForm(true)
+      },
+      {
+        label: 'Back to Start',
+        action: () => delayResponse("No problem! What else can I help you with?", 'welcome')
+      }
+    ]
   };
 
   const handleBookSubmit = async (e: React.FormEvent) => {
@@ -218,7 +136,7 @@ export default function Chatbot() {
           last_name: form.last_name,
           email: form.email,
           phone: form.phone,
-          website: 'Booked inside Chatbot',
+          website: 'Booked inside Rule-Based Chatbot',
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
@@ -226,8 +144,7 @@ export default function Chatbot() {
       setTimeout(() => {
         setShowForm(false);
         setStatus('idle');
-        // Add a nice follow-up message from bot
-        setMessages(prev => [...prev, { role: 'assistant', content: 'Boom! 🎉 I just received your request. My team will be in touch within exactly 24 hours to schedule your strategy session. Talk soon!' }]);
+        delayResponse('Boom! 🎉 I just received your request. My team will be in touch within exactly 24 hours to schedule your strategy session. Talk soon!');
       }, 3000);
     } catch {
       setStatus('error');
@@ -247,7 +164,7 @@ export default function Chatbot() {
 
   return (
     <>
-      {/* Floating Chat Button — pill that collapses to icon */}
+      {/* Floating Chat Button */}
       <div className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${isOpen ? 'opacity-0 pointer-events-none scale-75' : 'opacity-100 scale-100'}`}>
         <button
           onClick={() => {
@@ -299,7 +216,7 @@ export default function Chatbot() {
               </div>
             )}
             <div>
-              <h3 className="font-semibold text-white leading-tight">{showForm ? 'Request Strategy Call' : 'Oktuv AI'}</h3>
+              <h3 className="font-semibold text-white leading-tight">{showForm ? 'Request Strategy Call' : 'Oktuv Assistant'}</h3>
               <p className="text-xs text-gray-400">{showForm ? 'We will be in touch shortly' : 'Usually replies instantly'}</p>
             </div>
           </div>
@@ -347,85 +264,56 @@ export default function Chatbot() {
             </form>
           </div>
         ) : (
-          <>
-            <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 relative">
-
-              {/* Default Welcome Message */}
-              <div className="flex gap-2">
-                <div className="max-w-[85%] p-3 rounded-2xl rounded-tl-sm text-sm" style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--ink2)' }}>
-                  BOOM! 👋 You just found Oktuv AI. I'm the ultimate engine for Oktuv Global. What kind of massive growth can I help you unlock today? 🚀
-                </div>
-              </div>
-
-              {/* Chat History */}
+          <div className="flex-1 flex flex-col relative overflow-hidden">
+            {/* Chat History */}
+            <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 no-scrollbar pb-6">
               {messages.map((m, idx) => (
                 <div key={idx} className={`flex gap-2 ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div
-                    className={`max-w-[85%] p-3 rounded-2xl text-sm whitespace-pre-wrap ${m.role === 'user'
+                    className={`max-w-[85%] p-3 rounded-2xl text-[14px] leading-relaxed whitespace-pre-wrap ${m.role === 'user'
                         ? 'rounded-tr-sm text-white'
-                        : 'rounded-tl-sm text-gray-300'
+                        : 'rounded-tl-sm text-gray-200'
                       }`}
-                    style={{ background: m.role === 'user' ? 'var(--brand)' : 'rgba(255,255,255,0.05)' }}
+                    style={{ background: m.role === 'user' ? 'var(--brand)' : 'rgba(255,255,255,0.06)', border: m.role === 'user' ? 'none' : '1px solid rgba(255,255,255,0.05)' }}
                   >
-                    {/* Handle empty content while waiting for typewriter stream to begin */}
-                    {m.content === '' && m.role === 'assistant' ? (
-                      <span className="animate-pulse flex gap-1 items-center h-4">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animation-delay-100"></span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animation-delay-200"></span>
-                      </span>
-                    ) : (
-                      m.content
-                    )}
+                    {m.content}
                   </div>
                 </div>
               ))}
+              
+              {isTyping && (
+                <div className="flex gap-2 justify-start">
+                  <div className="max-w-[85%] p-3 px-4 rounded-2xl rounded-tl-sm" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                    <span className="animate-pulse flex gap-1 items-center h-5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animation-delay-100"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animation-delay-200"></span>
+                    </span>
+                  </div>
+                </div>
+              )}
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Suggestions & Call to Action */}
-            {!isLoading && (
-              <div className="px-4 pb-2 flex gap-2 overflow-x-auto shrink-0 no-scrollbar">
-                {messages.length < 3 ? (
-                  SUGGESTIONS.map((sug, i) => (
-                    <button
-                      key={i}
-                      onClick={() => handleSuggestionClick(sug)}
-                      className="whitespace-nowrap px-3 py-1.5 text-xs rounded-full border transition-colors shrink-0"
-                      style={{ borderColor: 'rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)', color: 'var(--ink2)' }}
-                    >
-                      {sug}
-                    </button>
-                  ))
-                ) : (
-                  <button
-                    onClick={() => setShowForm(true)}
-                    className="whitespace-nowrap px-3 py-1.5 text-xs rounded-full border transition-transform hover:scale-105 shrink-0"
-                    style={{ borderColor: 'var(--brand)', background: 'rgba(255,92,0,0.15)', color: 'var(--brand)', fontWeight: 600 }}
-                  >
-                    📅 Book a Free Call
-                  </button>
-                )}
-              </div>
-            )}
-
-            {/* Chat Input Field */}
-            <div className="p-4 border-t shrink-0" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
-              <form onSubmit={handleSubmit} className="flex gap-2 items-center">
-                <input
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask me anything..."
-                  className="flex-1 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white focus:outline-none transition-colors"
-                  style={{ caretColor: 'var(--brand)' }}
-                  autoComplete="off"
-                />
-                <button type="submit" disabled={!input.trim() || isLoading} className="p-2 rounded-full text-white disabled:opacity-50 transition-opacity shrink-0" style={{ border: 'none', background: 'var(--brand)', cursor: input.trim() && !isLoading ? 'pointer' : 'default' }}>
-                  <Send size={16} />
+            {/* Quick Reply Options Area */}
+            <div className="p-4 pt-2 border-t shrink-0 flex flex-col gap-2" style={{ borderColor: 'rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.2)' }}>
+              {!isTyping && optionsMap[currentStep].map((opt, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleOptionClick(opt.label, opt.action)}
+                  className="w-full text-left px-4 py-3 rounded-xl text-[13px] font-medium transition-all flex items-center justify-between group"
+                  style={{ 
+                    background: opt.label.includes('Whatsapp') ? 'rgba(37, 211, 102, 0.1)' : 'rgba(255,255,255,0.04)',
+                    color: opt.label.includes('Whatsapp') ? '#25D366' : 'var(--ink)',
+                    border: `1px solid ${opt.label.includes('Whatsapp') ? 'rgba(37, 211, 102, 0.2)' : 'rgba(255,255,255,0.08)'}`
+                  }}
+                >
+                  {opt.label}
+                  <ArrowRight size={14} className="opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </button>
-              </form>
+              ))}
             </div>
-          </>
+          </div>
         )}
       </div>
 
@@ -433,6 +321,8 @@ export default function Chatbot() {
         __html: `
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .animation-delay-100 { animation-delay: 100ms; }
+        .animation-delay-200 { animation-delay: 200ms; }
       `}} />
     </>
   );
