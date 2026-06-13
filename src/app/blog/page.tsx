@@ -14,9 +14,11 @@ export const metadata: Metadata = {
 };
 
 export default function BlogListingPage() {
-  const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  const featuredPost = sortedPosts[0];
-  const remainingPosts = sortedPosts.slice(1);
+  const targetFeaturedSlug = 'reduce-customer-acquisition-cost-ai';
+  const featuredPost = blogPosts.find(p => p.slug === targetFeaturedSlug) || blogPosts[0];
+  const remainingPosts = blogPosts
+    .filter(p => p.slug !== featuredPost.slug)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <div className="relative min-h-screen flex flex-col" style={{ background: 'var(--surface)' }}>
@@ -79,7 +81,7 @@ export default function BlogListingPage() {
                   <div className="w-full lg:w-5/12 aspect-[4/3] rounded-2xl relative overflow-hidden group-hover:opacity-90 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(255,92,0,0.15) 0%, rgba(20,20,22,1) 100%)', border: '1px solid rgba(255,255,255,0.05)' }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
-                      src="/blog/featured-acquisition.webp" 
+                      src={featuredPost.image || "/blog/featured-acquisition.webp"} 
                       alt={featuredPost.title}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
