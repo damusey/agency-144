@@ -14,8 +14,9 @@ export const metadata: Metadata = {
 };
 
 export default function BlogListingPage() {
-  const featuredPost = blogPosts[0];
-  const remainingPosts = blogPosts.slice(1);
+  const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const featuredPost = sortedPosts[0];
+  const remainingPosts = sortedPosts.slice(1);
 
   return (
     <div className="relative min-h-screen flex flex-col" style={{ background: 'var(--surface)' }}>
