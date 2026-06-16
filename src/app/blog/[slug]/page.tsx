@@ -1,14 +1,15 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
-import { blogPosts } from '@/data/blog';
+import { ArrowLeft, Calendar, Clock, Share2, ArrowRight } from 'lucide-react';
+import { getPostData, getSortedPostsData } from '@/lib/markdown';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-// Generate static params for all 7 blog slugs at build time
+// Generate static params for all blog slugs at build time
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  const posts = getSortedPostsData();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 // Generate unique SEO metadata for each blog post
@@ -16,7 +17,7 @@ export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts.find(p => p.slug === slug);
+  const post = await getPostData(slug);
 
   if (!post) {
     return { title: 'Post Not Found | Oktuv' };
@@ -46,7 +47,7 @@ export default async function BlogPostPage(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
-  const post = blogPosts.find(p => p.slug === slug);
+  const post = await getPostData(slug);
 
   if (!post) {
     notFound();
@@ -138,8 +139,19 @@ export default async function BlogPostPage(
               }
             `}} />
 
+            {/* CTA Block */}
+            <div className="mt-16 p-8 rounded-2xl border flex flex-col md:flex-row items-center justify-between gap-6" style={{ background: 'rgba(255, 255, 255, 0.02)', borderColor: 'var(--border)' }}>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">Ready to scale your digital growth?</h3>
+                <p className="text-[15px]" style={{ color: 'var(--ink3)' }}>Book a free strategy audit to identify bottlenecks and accelerate your business.</p>
+              </div>
+              <Link href="/audit" className="shrink-0 flex items-center gap-2 px-6 py-3 rounded-full text-[14px] font-bold transition-all text-white hover:opacity-90" style={{ background: 'var(--brand)' }}>
+                Book Your Audit <ArrowRight size={16} />
+              </Link>
+            </div>
+
             {/* Share / Footer of post */}
-            <div className="mt-20 pt-8 flex items-center justify-between border-t" style={{ borderColor: 'var(--border)' }}>
+            <div className="mt-12 pt-8 flex items-center justify-between border-t" style={{ borderColor: 'var(--border)' }}>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white text-black font-bold">O</div>
                 <div>

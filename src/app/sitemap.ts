@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { solutionCategories } from '@/data/solutions';
-import { blogPosts } from '@/data/blog';
+import { getSortedPostsData } from '@/lib/markdown';
 
 export const dynamic = 'force-static';
 
@@ -32,7 +32,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map(post => ({
+  const posts = getSortedPostsData();
+
+  const blogPages: MetadataRoute.Sitemap = posts.map(post => ({
     url: `${baseUrl}/blog/${post.slug}/`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,

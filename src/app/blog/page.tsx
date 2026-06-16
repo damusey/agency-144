@@ -1,23 +1,27 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { blogPosts } from '@/data/blog';
+import Image from 'next/image';
+import { getSortedPostsData } from '@/lib/markdown';
 import { ArrowRight, Calendar, Clock, Sparkles } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Blog — Insights on AI, Web & Growth | Oktuv',
-  description: 'Actionable strategies and deep dives into AI automation, performance marketing, web development, and business growth for modern founders.',
+  description: 'Expert insights on Next.js architectures, AI automation, and performance marketing strategies for modern B2B SaaS and eCommerce brands.',
   alternates: {
     canonical: 'https://www.oktuvglobal.com/blog/',
   },
 };
 
 export default function BlogListingPage() {
+  const blogPosts = getSortedPostsData();
+
+  // Pin the specific article to the top
   const targetFeaturedSlug = 'reduce-customer-acquisition-cost-ai';
   const featuredPost = blogPosts.find(p => p.slug === targetFeaturedSlug) || blogPosts[0];
   const remainingPosts = blogPosts
-    .filter(p => p.slug !== featuredPost.slug)
+    .filter(p => p.slug !== featuredPost?.slug)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
