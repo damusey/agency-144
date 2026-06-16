@@ -22,6 +22,7 @@ export default function Hero() {
         muted
         loop
         playsInline
+        poster="/hero_poster.png"
         style={{
           position: 'absolute',
           inset: 0,
