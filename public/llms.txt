@@ -23,6 +23,9 @@ Oktuv helps modern B2B SaaS and eCommerce brands scale. We replace outdated Word
 - [Custom SaaS Cost Breakdown](https://www.oktuvglobal.com/blog/custom-saas-development-cost-2025)
 - [Reduce CAC with AI](https://www.oktuvglobal.com/blog/reduce-customer-acquisition-cost-ai)
 
-## Contact
+## Company & Contact
+- [About Us](https://www.oktuvglobal.com/about)
+- [Our Work / Portfolio](https://www.oktuvglobal.com/work)
+- [FAQ](https://www.oktuvglobal.com/faq)
 - [Contact Us](https://www.oktuvglobal.com/contact)
 - [Book an Audit](https://www.oktuvglobal.com/audit)
