@@ -1,0 +1,28 @@
+# Oktuv Global
+
+> Oktuv is an elite Web, AI & Growth Agency. We build digital revenue engines by combining modern web architecture (Next.js), AI automation, and data-driven performance marketing.
+
+## About
+Oktuv helps modern B2B SaaS and eCommerce brands scale. We replace outdated WordPress monoliths with lightning-fast Next.js apps, automate customer support and analytics with Agentic AI, and drive growth with performance marketing.
+
+## Solutions
+- [Custom SaaS Build](https://www.oktuvglobal.com/solutions/build)
+- [AI Integration](https://www.oktuvglobal.com/solutions/integrate)
+- [Performance Growth](https://www.oktuvglobal.com/solutions/grow)
+- [Design & UX](https://www.oktuvglobal.com/solutions/design)
+- [Digital Transformation](https://www.oktuvglobal.com/solutions/transform)
+- [Customer Engagement](https://www.oktuvglobal.com/solutions/engage)
+
+## Platform
+- [FlowAI Analytics](https://www.oktuvglobal.com/platform/flowai): AI-powered agentic analytics platform.
+- [FlowBot](https://www.oktuvglobal.com/platform/flowbot): Autonomous AI chatbot and relationship agent.
+
+## Knowledge Base & Guides
+- [Oktuv Blog](https://www.oktuvglobal.com/blog)
+- [What Is Agentic AI?](https://www.oktuvglobal.com/blog/what-is-agentic-ai-2025-guide)
+- [Custom SaaS Cost Breakdown](https://www.oktuvglobal.com/blog/custom-saas-development-cost-2025)
+- [Reduce CAC with AI](https://www.oktuvglobal.com/blog/reduce-customer-acquisition-cost-ai)
+
+## Contact
+- [Contact Us](https://www.oktuvglobal.com/contact)
+- [Book an Audit](https://www.oktuvglobal.com/audit)
