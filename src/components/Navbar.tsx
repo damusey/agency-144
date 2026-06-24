@@ -8,11 +8,11 @@ import { solutionCategories, iconMap } from '@/data/solutions';
 
 export const navLinks = [
   { name: 'Solutions', href: '/#services' },
-  { name: 'Platform', href: '/platform/flowai' },
-  { name: 'Work', href: '/work' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'About', href: '/about' },
-  { name: 'FAQ', href: '/faq' },
+  { name: 'Platform', href: '/platform/flowai/' },
+  { name: 'Work', href: '/work/' },
+  { name: 'Blog', href: '/blog/' },
+  { name: 'About', href: '/about/' },
+  { name: 'FAQ', href: '/faq/' },
 ];
 
 export default function Navbar() {

@@ -4,35 +4,35 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const legalLinks = [
-  { name: 'Terms & Conditions', href: '/terms' },
-  { name: 'Privacy Policy', href: '/privacy' },
+  { name: 'Terms & Conditions', href: '/terms/' },
+  { name: 'Privacy Policy', href: '/privacy/' },
 ];
 
 const solutionLinks = [
-  { name: 'Custom SaaS Build', href: '/solutions/build' },
-  { name: 'AI Integration', href: '/solutions/integrate' },
-  { name: 'Performance Growth', href: '/solutions/grow' },
-  { name: 'Design & UX', href: '/solutions/design' },
-  { name: 'Digital Transformation', href: '/solutions/transform' },
-  { name: 'Customer Engagement', href: '/solutions/engage' },
+  { name: 'Custom SaaS Build', href: '/solutions/build/' },
+  { name: 'AI Integration', href: '/solutions/integrate/' },
+  { name: 'Performance Growth', href: '/solutions/grow/' },
+  { name: 'Design & UX', href: '/solutions/design/' },
+  { name: 'Digital Transformation', href: '/solutions/transform/' },
+  { name: 'Customer Engagement', href: '/solutions/engage/' },
 ];
 
 const companyLinks = [
-  { name: 'About Us', href: '/about' },
-  { name: 'Our Work', href: '/work' },
-  { name: 'FAQ', href: '/faq' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'About Us', href: '/about/' },
+  { name: 'Our Work', href: '/work/' },
+  { name: 'FAQ', href: '/faq/' },
+  { name: 'Contact', href: '/contact/' },
 ];
 
 const platformLinks = [
-  { name: 'FlowAI Analytics', href: '/platform/flowai' },
-  { name: 'FlowBot Agent', href: '/platform/flowbot' },
+  { name: 'FlowAI Analytics', href: '/platform/flowai/' },
+  { name: 'FlowBot Agent', href: '/platform/flowbot/' },
 ];
 
 const resourceLinks = [
-  { name: 'What Is Agentic AI?', href: '/blog/what-is-agentic-ai-2025-guide' },
-  { name: 'Custom SaaS Cost Breakdown', href: '/blog/custom-saas-development-cost-2025' },
-  { name: 'Reduce CAC with AI', href: '/blog/reduce-customer-acquisition-cost-ai' },
+  { name: 'What Is Agentic AI?', href: '/blog/what-is-agentic-ai-2025-guide/' },
+  { name: 'Custom SaaS Cost Breakdown', href: '/blog/custom-saas-development-cost-2025/' },
+  { name: 'Reduce CAC with AI', href: '/blog/reduce-customer-acquisition-cost-ai/' },
 ];
 
 export default function Footer() {

@@ -27,7 +27,7 @@ export default function RelatedPosts({ currentSlug }: { currentSlug: string }) {
       </h3>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
         {related.map(post => (
-          <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
+          <Link key={post.slug} href={`/blog/${post.slug}/`} style={{ textDecoration: 'none' }}>
             <div
               className="service-card"
               style={{
