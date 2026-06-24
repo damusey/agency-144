@@ -55,6 +55,37 @@ export default async function BlogPostPage(
 
   return (
     <div className="relative min-h-screen flex flex-col" style={{ background: 'var(--surface)' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: new Date(post.date).toISOString(),
+            dateModified: new Date(post.date).toISOString(),
+            articleSection: post.category,
+            author: {
+              "@type": "Organization",
+              name: "Oktuv Growth Team"
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Oktuv",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.oktuvglobal.com/logo.png"
+              }
+            },
+            image: post.image || "https://www.oktuvglobal.com/blog/featured-acquisition.webp",
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://www.oktuvglobal.com/blog/${post.slug}/`
+            }
+          })
+        }}
+      />
       <Navbar />
 
       <main className="flex-1 relative pb-32">

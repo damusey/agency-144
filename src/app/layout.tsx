@@ -68,7 +68,31 @@ export default function RootLayout({
       <link rel="manifest" href="/favicon_io/site.webmanifest" />
       <link rel="icon" href="/favicon_io/favicon.ico" />
       {/* FAVICON END */}
-
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Oktuv",
+            url: "https://www.oktuvglobal.com",
+            logo: "https://www.oktuvglobal.com/logo.png",
+            description: "Oktuv turns your digital presence into a 24/7 growth engine. Web development, AI automation, performance marketing, and design — all in one senior team.",
+            sameAs: [
+              "https://www.linkedin.com/company/oktuv",
+              "https://twitter.com/oktuv",
+              "https://www.instagram.com/oktuv"
+            ],
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+91-000-000-0000",
+              contactType: "customer service",
+              email: "hello@oktuvglobal.com",
+              availableLanguage: ["English", "Hindi"]
+            }
+          })
+        }}
+      />
       </head>
       <body>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-YVKWT6KRB0" strategy="afterInteractive" />

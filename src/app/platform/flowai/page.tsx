@@ -94,6 +94,31 @@ export default function FlowAIPage() {
   return (
     <>
       <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "FlowAI",
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "Web",
+            provider: {
+              "@type": "Organization",
+              name: "Oktuv",
+              url: "https://www.oktuvglobal.com"
+            },
+            url: "https://www.oktuvglobal.com/platform/flowai/",
+            description: "FlowAI is a custom RAG (Retrieval-Augmented Generation) analytics engine that allows you to chat with your business databases and get instant, natural-language insights.",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              description: "Contact for custom enterprise pricing"
+            }
+          })
+        }}
+      />
       <main style={{ minHeight: '100vh', background: 'var(--bg)', position: 'relative', overflow: 'hidden' }}>
 
         {/* Glow orb */}

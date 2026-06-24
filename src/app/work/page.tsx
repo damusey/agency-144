@@ -35,6 +35,24 @@ export default function WorkPage() {
   return (
     <>
       <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: caseStudies.map((study, idx) => ({
+              "@type": "ListItem",
+              position: idx + 1,
+              item: {
+                "@type": "CreativeWork",
+                name: study.client,
+                description: study.headline
+              }
+            }))
+          })
+        }}
+      />
       <main style={{ minHeight: '100vh', padding: '100px 0 0', background: 'var(--bg)', position: 'relative' }}>
 
         {/* Glow */}

@@ -15,6 +15,23 @@ export default function FAQ() {
 
   return (
     <section style={{ padding: '5vw 0', position: 'relative' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map(f => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: f.a
+              }
+            }))
+          })
+        }}
+      />
       <div className="glow-orb" style={{ top: '50%', right: '-10%', transform: 'translateY(-50%)', background: 'radial-gradient(circle, rgba(255,158,11,0.04) 0%, rgba(0,0,0,0) 60%)' }} />
 
       <div className="wrap grid-stack-mob" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: '8vw', alignItems: 'start', position: 'relative', zIndex: 10 }}>

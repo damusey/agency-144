@@ -112,6 +112,31 @@ export default function FlowBotPage() {
   return (
     <>
       <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "FlowBot",
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "Web",
+            provider: {
+              "@type": "Organization",
+              name: "Oktuv",
+              url: "https://www.oktuvglobal.com"
+            },
+            url: "https://www.oktuvglobal.com/platform/flowbot/",
+            description: "FlowBot helps businesses sell more, support faster, and keep customers coming back — with intelligent chatbots on WhatsApp, web, and apps.",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              description: "Contact for custom enterprise pricing"
+            }
+          })
+        }}
+      />
       <main className="fb-main">
 
         <div className="fb-glow-orb" />

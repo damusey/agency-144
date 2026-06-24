@@ -41,5 +41,38 @@ export default async function SolutionPage(
     notFound();
   }
 
-  return <SolutionPageClient category={category} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: category.heroTitle,
+            description: category.intro,
+            provider: {
+              "@type": "Organization",
+              name: "Oktuv",
+              url: "https://www.oktuvglobal.com"
+            },
+            serviceType: category.label,
+            areaServed: "Worldwide",
+            url: `https://www.oktuvglobal.com/solutions/${category.key}/`,
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: `${category.label} Services`,
+              itemListElement: category.services.map((s, idx) => ({
+                "@type": "OfferCatalog",
+                name: s.name,
+                description: s.desc,
+                position: idx + 1
+              }))
+            }
+          })
+        }}
+      />
+      <SolutionPageClient category={category} />
+    </>
+  );
 }
