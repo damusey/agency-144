@@ -3,6 +3,15 @@
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
+const solutionLinks = [
+  { name: 'Custom SaaS Build', href: '/solutions/build' },
+  { name: 'AI Integration', href: '/solutions/integrate' },
+  { name: 'Performance Growth', href: '/solutions/grow' },
+  { name: 'Design & UX', href: '/solutions/design' },
+  { name: 'Digital Transformation', href: '/solutions/transform' },
+  { name: 'Customer Engagement', href: '/solutions/engage' },
+];
+
 const companyLinks = [
   { name: 'About Us', href: '/about' },
   { name: 'Our Work', href: '/work' },
@@ -26,9 +35,9 @@ export default function Footer() {
     <footer style={{ padding: '80px 0 40px', background: '#050505', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
       <div className="wrap" style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '48px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '48px' }}>
           {/* Column 1: Brand */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', gridColumn: '1 / -1', '@media(min-width: 1024px)': { gridColumn: 'span 2' } } as React.CSSProperties}>
             <Link href="/" style={{ textDecoration: 'none' }}>
               <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', height: 42 }}>
                 <img src="/logo.png" alt="Oktuv" style={{ objectFit: 'contain', width: 'auto', height: '100%' }} />
@@ -39,7 +48,21 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Column 2: Platform */}
+          {/* Column 2: Solutions */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Solutions</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
+              {solutionLinks.map(l => (
+                <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
+                  {l.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Column 3: Platform */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Platform</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
@@ -53,7 +76,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Company */}
+          {/* Column 4: Company */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Company</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
