@@ -1,10 +1,11 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Calendar, Clock, Share2, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Share2, ArrowRight, Tag } from 'lucide-react';
 import { getPostData, getSortedPostsData } from '@/lib/markdown';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import RelatedPosts from '@/components/RelatedPosts';
 
 // Generate static params for all blog slugs at build time
 export function generateStaticParams() {
@@ -20,11 +21,13 @@ export async function generateMetadata(
   const post = await getPostData(slug);
 
   if (!post) {
-    return { title: 'Post Not Found | Oktuv' };
+    return { title: 'Post Not Found' };
   }
 
+  const cleanTitle = post.metaTitle.replace(/\s*\|\s*Oktuv.*$/, '');
+
   return {
-    title: post.metaTitle,
+    title: cleanTitle,
     description: post.metaDescription,
     alternates: {
       canonical: `https://www.oktuvglobal.com/blog/${post.slug}/`,
@@ -107,7 +110,7 @@ export default async function BlogPostPage(
         <div className="hero-glass-overlay" />
 
         <article className="relative z-10 pt-16 lg:pt-24">
-          
+
           {/* Post Header */}
           <header className="max-w-3xl mx-auto px-6 mb-16 text-center" style={{ animation: 'fadeUp 0.6s ease forwards' }}>
             <Link href="/blog" className="inline-flex items-center gap-2 mb-10 text-[13px] font-semibold transition-colors text-[var(--ink3)] hover:text-[var(--brand)]">
@@ -133,12 +136,13 @@ export default async function BlogPostPage(
           {/* Post Content */}
           <div className="max-w-[720px] mx-auto px-6" style={{ animation: 'fadeUp 0.8s ease forwards 0.2s', opacity: 0 }}>
             {/* Custom styles just for blog content typography to ensure readability and beauty */}
-            <div 
+            <div
               className="blog-content"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
-            <style dangerouslySetInnerHTML={{__html: `
+            <style dangerouslySetInnerHTML={{
+              __html: `
               .blog-content {
                 color: var(--ink2);
                 font-size: 17px;
@@ -207,6 +211,7 @@ export default async function BlogPostPage(
             </div>
           </div>
 
+          <RelatedPosts currentSlug={post.slug} />
         </article>
       </main>
 
