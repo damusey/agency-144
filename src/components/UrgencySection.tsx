@@ -38,7 +38,7 @@ export default function UrgencySection() {
           </div>
         </div>
 
-        <Link href="/book" style={{ textDecoration: 'none' }}>
+        <Link href="/book/" style={{ textDecoration: 'none' }}>
           <button className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '15px', borderRadius: '100px', boxShadow: '0 8px 30px rgba(255,92,0,0.3)' }}>
             Reserve your spot <ArrowRight size={16}/>
           </button>

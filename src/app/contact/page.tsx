@@ -410,7 +410,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Quick action CTA */}
-                <Link href="/book" style={{ textDecoration: 'none' }}>
+                <Link href="/book/" style={{ textDecoration: 'none' }}>
                   <div style={{
                     background: 'linear-gradient(135deg, rgba(255,92,0,0.1), rgba(255,92,0,0.03))',
                     border: '1px solid rgba(255,92,0,0.15)',

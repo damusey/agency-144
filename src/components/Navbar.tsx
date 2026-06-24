@@ -129,7 +129,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:block">
-          <Link href="/book" style={{ textDecoration: 'none' }}>
+          <Link href="/book/" style={{ textDecoration: 'none' }}>
             <button className="btn btn-primary" style={{ padding: '10px 22px', fontSize: '13.5px', borderRadius: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               onMouseEnter={e => { e.currentTarget.style.background = 'var(--brand-d)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'var(--brand)'; e.currentTarget.style.transform = 'translateY(0)'; }}
@@ -230,7 +230,7 @@ export default function Navbar() {
                 {mobPlatformOpen && (
                   <div style={{ padding: '8px 0 0 0', display: 'flex', flexDirection: 'column', gap: '4px' }}>
                     <Link
-                      href="/platform/flowai"
+                      href="/platform/flowai/"
                       onClick={() => setMenuOpen(false)}
                       style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 14px', borderRadius: '10px', textDecoration: 'none', transition: 'background 0.15s' }}
                     >
@@ -243,7 +243,7 @@ export default function Navbar() {
                       </div>
                     </Link>
                     <Link
-                      href="/platform/flowbot"
+                      href="/platform/flowbot/"
                       onClick={() => setMenuOpen(false)}
                       style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 14px', borderRadius: '10px', textDecoration: 'none', transition: 'background 0.15s' }}
                     >
@@ -260,35 +260,35 @@ export default function Navbar() {
               </div>
 
               {/* ── Direct Links (same as desktop) ── */}
-              <Link href="/work"
+              <Link href="/work/"
                 style={{ fontSize: '16px', padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', color: 'var(--ink)', textDecoration: 'none', fontWeight: 600, border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
                 onClick={() => setMenuOpen(false)}>
                 Work
                 <ArrowRight size={16} color="var(--ink3)" />
               </Link>
 
-              <Link href="/blog"
+              <Link href="/blog/"
                 style={{ fontSize: '16px', padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', color: 'var(--ink)', textDecoration: 'none', fontWeight: 600, border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
                 onClick={() => setMenuOpen(false)}>
                 Blog
                 <ArrowRight size={16} color="var(--ink3)" />
               </Link>
 
-              <Link href="/about"
+              <Link href="/about/"
                 style={{ fontSize: '16px', padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', color: 'var(--ink)', textDecoration: 'none', fontWeight: 600, border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
                 onClick={() => setMenuOpen(false)}>
                 About
                 <ArrowRight size={16} color="var(--ink3)" />
               </Link>
 
-              <Link href="/faq"
+              <Link href="/faq/"
                 style={{ fontSize: '16px', padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', color: 'var(--ink)', textDecoration: 'none', fontWeight: 600, border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
                 onClick={() => setMenuOpen(false)}>
                 FAQ
                 <ArrowRight size={16} color="var(--ink3)" />
               </Link>
 
-              <Link href="/contact"
+              <Link href="/contact/"
                 style={{ fontSize: '16px', padding: '16px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', color: 'var(--ink)', textDecoration: 'none', fontWeight: 600, border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
                 onClick={() => setMenuOpen(false)}>
                 Contact
@@ -299,7 +299,7 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <div style={{ marginTop: 'auto', paddingTop: '24px' }}>
-              <Link href="/book" style={{ textDecoration: 'none', width: '100%' }}>
+              <Link href="/book/" style={{ textDecoration: 'none', width: '100%' }}>
                 <button className="btn btn-primary" style={{ width: '100%', padding: '16px', justifyContent: 'center', fontSize: '15px' }}>
                   Book a Strategy Call
                 </button>
@@ -431,12 +431,12 @@ export default function Navbar() {
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <Link href="/book" style={{ textDecoration: 'none' }}>
+                <Link href="/book/" style={{ textDecoration: 'none' }}>
                   <button className="btn btn-primary" style={{ width: '100%', padding: '10px 16px', fontSize: '13px', borderRadius: '10px', justifyContent: 'center' }}>
                     Book a Strategy Call
                   </button>
                 </Link>
-                <Link href="/work" style={{ textDecoration: 'none', textAlign: 'center', fontSize: '12.5px', color: 'var(--ink3)', transition: 'color 0.2s' }}
+                <Link href="/work/" style={{ textDecoration: 'none', textAlign: 'center', fontSize: '12.5px', color: 'var(--ink3)', transition: 'color 0.2s' }}
                   onMouseEnter={e => e.currentTarget.style.color = 'var(--brand)'}
                   onMouseLeave={e => e.currentTarget.style.color = 'var(--ink3)'}
                 >
@@ -483,7 +483,7 @@ export default function Navbar() {
           <div className="grid-stack-mob" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             {/* FlowAI Analytics Card */}
             <Link
-              href="/platform/flowai"
+              href="/platform/flowai/"
               onClick={() => setPlatformOpen(false)}
               className="platform-card"
               style={{
@@ -512,7 +512,7 @@ export default function Navbar() {
 
             {/* FlowBot Studio Card */}
             <Link
-              href="/platform/flowbot"
+              href="/platform/flowbot/"
               onClick={() => setPlatformOpen(false)}
               className="platform-card"
               style={{

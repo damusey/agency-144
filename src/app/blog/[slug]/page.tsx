@@ -113,7 +113,7 @@ export default async function BlogPostPage(
 
           {/* Post Header */}
           <header className="max-w-3xl mx-auto px-6 mb-16 text-center" style={{ animation: 'fadeUp 0.6s ease forwards' }}>
-            <Link href="/blog" className="inline-flex items-center gap-2 mb-10 text-[13px] font-semibold transition-colors text-[var(--ink3)] hover:text-[var(--brand)]">
+            <Link href="/blog/" className="inline-flex items-center gap-2 mb-10 text-[13px] font-semibold transition-colors text-[var(--ink3)] hover:text-[var(--brand)]">
               <ArrowLeft size={16} /> Back to all articles
             </Link>
 
@@ -191,7 +191,7 @@ export default async function BlogPostPage(
                 <h3 className="text-xl font-bold text-white mb-2">Ready to scale your digital growth?</h3>
                 <p className="text-[15px]" style={{ color: 'var(--ink3)' }}>Book a free strategy audit to identify bottlenecks and accelerate your business.</p>
               </div>
-              <Link href="/audit" className="shrink-0 flex items-center gap-2 px-6 py-3 rounded-full text-[14px] font-bold transition-all text-white hover:opacity-90" style={{ background: 'var(--brand)' }}>
+              <Link href="/audit/" className="shrink-0 flex items-center gap-2 px-6 py-3 rounded-full text-[14px] font-bold transition-all text-white hover:opacity-90" style={{ background: 'var(--brand)' }}>
                 Book Your Audit <ArrowRight size={16} />
               </Link>
             </div>

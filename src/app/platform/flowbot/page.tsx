@@ -161,7 +161,7 @@ export default function FlowBotPage() {
                   FlowBot helps businesses sell more, support faster, and keep customers coming back — with intelligent chatbots on WhatsApp, web, and apps.
                 </p>
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-                  <Link href="/book" style={{ textDecoration: 'none' }}>
+                  <Link href="/book/" style={{ textDecoration: 'none' }}>
                     <button className="btn btn-primary fb-hero-btn">
                       Get Your Bot Live <ArrowRight size={16} />
                     </button>
@@ -313,7 +313,7 @@ export default function FlowBotPage() {
             </div>
 
             <div style={{ textAlign: 'center', marginTop: '48px' }}>
-              <Link href="/book" style={{ textDecoration: 'none' }}>
+              <Link href="/book/" style={{ textDecoration: 'none' }}>
                 <button className="btn btn-primary fb-cta-pulse" style={{ padding: '14px 32px', fontSize: '15px', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                   Start Your Setup <ArrowRight size={16} />
                 </button>
@@ -380,7 +380,7 @@ export default function FlowBotPage() {
             <p style={{ fontSize: '16px', color: 'var(--ink2)', lineHeight: 1.6, marginBottom: '32px' }}>
               Book a free 15-minute call. We&apos;ll have your bot live within 48 hours.
             </p>
-            <Link href="/book" style={{ textDecoration: 'none' }}>
+            <Link href="/book/" style={{ textDecoration: 'none' }}>
               <button className="btn btn-primary fb-cta-pulse" style={{ padding: '16px 40px', fontSize: '16px', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '8px', boxShadow: '0 8px 30px rgba(255,92,0,0.3)' }}>
                 Get Your Bot Live <ArrowRight size={18} />
               </button>

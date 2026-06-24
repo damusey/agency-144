@@ -181,7 +181,7 @@ export default function SolutionPageClient({ category }: SolutionPageClientProps
             <div style={{ marginTop: '32px', padding: '20px', borderRadius: '16px', background: 'rgba(255,92,0,0.04)', border: '1px solid rgba(255,92,0,0.1)' }}>
               <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--ink)', marginBottom: '8px' }}>Need help choosing?</div>
               <p style={{ fontSize: '12px', color: 'var(--ink3)', lineHeight: 1.5, marginBottom: '14px' }}>Our strategists will map the right solution for your exact growth stage.</p>
-              <Link href="/book" style={{ textDecoration: 'none' }}>
+              <Link href="/book/" style={{ textDecoration: 'none' }}>
                 <button className="btn btn-primary" style={{ width: '100%', padding: '8px 14px', fontSize: '12px', borderRadius: '8px', justifyContent: 'center' }}>
                   Book a Call
                 </button>
@@ -292,7 +292,7 @@ export default function SolutionPageClient({ category }: SolutionPageClientProps
                       </div>
 
                       {/* Section CTA */}
-                      <Link href="/book" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '28px', fontSize: '13px', fontWeight: 600, color: 'var(--brand)', transition: 'gap 0.2s' }}
+                      <Link href="/book/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '28px', fontSize: '13px', fontWeight: 600, color: 'var(--brand)', transition: 'gap 0.2s' }}
                         onMouseEnter={e => (e.currentTarget.style.gap = '10px')}
                         onMouseLeave={e => (e.currentTarget.style.gap = '6px')}
                       >

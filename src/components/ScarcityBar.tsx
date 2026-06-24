@@ -63,7 +63,7 @@ export default function ScarcityBar() {
         </span>
         {' '}— We cap clients to protect quality.{' '}
         <span className="scarcity-animated" style={{ cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
-          <Link href="/book" style={{ color: 'inherit', textDecoration: 'none' }}>Book your free call now →</Link>
+          <Link href="/book/" style={{ color: 'inherit', textDecoration: 'none' }}>Book your free call now →</Link>
         </span>
         <button
           onClick={() => setVisible(false)}

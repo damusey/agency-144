@@ -44,7 +44,7 @@ export default function NotFound() {
                 <ArrowLeft size={16} /> Go back home
               </button>
             </Link>
-            <Link href="/contact" style={{ textDecoration: 'none' }}>
+            <Link href="/contact/" style={{ textDecoration: 'none' }}>
               <button style={{ 
                 padding: '14px 28px', fontSize: '15px', fontWeight: 600, borderRadius: '14px', 
                 background: 'rgba(255,255,255,0.03)', 

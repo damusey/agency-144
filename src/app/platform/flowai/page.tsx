@@ -139,7 +139,7 @@ export default function FlowAIPage() {
               FlowAI replaces analyst requests, dashboard backlogs, and stale reports with a single intelligent layer that answers any data question in seconds.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-              <Link href="/book" style={{ textDecoration: 'none' }}>
+              <Link href="/book/" style={{ textDecoration: 'none' }}>
                 <button className="btn btn-primary" style={{ padding: '14px 32px', fontSize: '15px', borderRadius: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   Request a Demo <ArrowRight size={16} />
                 </button>

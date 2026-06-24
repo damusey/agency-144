@@ -26,7 +26,7 @@ export default function FinalCTA() {
         
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <Link href="/audit" style={{ textDecoration: 'none' }}><button className="btn btn-primary" style={{ fontSize: '16px', padding: '18px 36px', borderRadius: '100px', boxShadow: '0 8px 30px rgba(255,92,0,0.3)' }}
+            <Link href="/audit/" style={{ textDecoration: 'none' }}><button className="btn btn-primary" style={{ fontSize: '16px', padding: '18px 36px', borderRadius: '100px', boxShadow: '0 8px 30px rgba(255,92,0,0.3)' }}
               onMouseEnter={e => { const b = e.currentTarget; b.style.background = 'var(--brand-d)'; b.style.transform = 'translateY(-2px) scale(1.02)'; }}
               onMouseLeave={e => { const b = e.currentTarget; b.style.background = 'var(--brand)'; b.style.transform = 'translateY(0) scale(1)'; }}
             >
