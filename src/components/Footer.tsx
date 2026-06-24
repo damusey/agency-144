@@ -40,72 +40,75 @@ export default function Footer() {
     <footer style={{ padding: '80px 0 40px', background: '#050505', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
       <div className="wrap" style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '48px' }}>
-          {/* Column 1: Brand */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', gridColumn: '1 / -1', '@media(min-width: 1024px)': { gridColumn: 'span 2' } } as React.CSSProperties}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '48px', justifyContent: 'space-between' }}>
+          {/* Left Side: Brand */}
+          <div style={{ flex: '1 1 280px', maxWidth: '360px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <Link href="/" style={{ textDecoration: 'none' }}>
               <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', height: 42 }}>
                 <img src="/logo.png" alt="Oktuv" style={{ objectFit: 'contain', width: 'auto', height: '100%' }} />
               </div>
             </Link>
-            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '14px', lineHeight: 1.6, maxWidth: '280px' }}>
+            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '14px', lineHeight: 1.6 }}>
               Web development, AI automation, and performance marketing. We build digital revenue engines.
             </p>
           </div>
 
-          {/* Column 2: Solutions */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Solutions</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
-              {solutionLinks.map(l => (
-                <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
-                  {l.name}
-                </Link>
-              ))}
+          {/* Right Side: Links Grid */}
+          <div style={{ flex: '2 1 600px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '40px' }}>
+            {/* Column 2: Solutions */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Solutions</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
+                {solutionLinks.map(l => (
+                  <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
+                    {l.name}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Column 3: Platform */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Platform</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
-              {platformLinks.map(l => (
-                <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
-                  {l.name}
-                </Link>
-              ))}
+            {/* Column 3: Platform */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Platform</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
+                {platformLinks.map(l => (
+                  <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
+                    {l.name}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Column 4: Company */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Company</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
-              {companyLinks.map(l => (
-                <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
-                  {l.name}
-                </Link>
-              ))}
+            {/* Column 4: Company */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Company</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
+                {companyLinks.map(l => (
+                  <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
+                    {l.name}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Column 4: Top Resources */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Top Resources</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
-              {resourceLinks.map(l => (
-                <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
-                  {l.name}
-                </Link>
-              ))}
+            {/* Column 5: Top Resources */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Top Resources</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
+                {resourceLinks.map(l => (
+                  <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
+                    {l.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
