@@ -62,11 +62,10 @@ export default async function SolutionPage(
             hasOfferCatalog: {
               "@type": "OfferCatalog",
               name: `${category.label} Services`,
-              itemListElement: category.services.map((s, idx) => ({
+              itemListElement: category.services.map((s) => ({
                 "@type": "OfferCatalog",
                 name: s.name,
-                description: s.desc,
-                position: idx + 1
+                description: s.desc
               }))
             }
           })
