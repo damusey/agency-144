@@ -6,11 +6,17 @@ import { ArrowRight, Calendar } from 'lucide-react';
 export default function RelatedPosts({ currentSlug }: { currentSlug: string }) {
   const allPosts = getSortedPostsData();
   
-  // Filter out the current post
-  const otherPosts = allPosts.filter(post => post.slug !== currentSlug);
+  const currentIndex = allPosts.findIndex(post => post.slug === currentSlug);
   
-  // Grab the first 3 recent posts
-  const related = otherPosts.slice(0, 3);
+  // Create a rolling window of 3 posts using modulo to wrap around
+  // This guarantees perfect internal link distribution across ALL blog posts
+  const related = [];
+  if (allPosts.length > 3) {
+    for (let i = 1; i <= 3; i++) {
+      const nextIndex = (currentIndex + i) % allPosts.length;
+      related.push(allPosts[nextIndex]);
+    }
+  }
 
   if (related.length === 0) return null;
 
