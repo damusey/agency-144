@@ -47,7 +47,7 @@ export default function WorkPage() {
               item: {
                 "@type": "CreativeWork",
                 name: study.client,
-                description: study.headline
+                description: study.impact
               }
             }))
           })
