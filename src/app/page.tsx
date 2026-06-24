@@ -10,6 +10,14 @@ import UrgencySection from '@/components/UrgencySection';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+};
+
 export default function Home() {
   return (
     <>
