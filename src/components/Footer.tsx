@@ -3,6 +3,11 @@
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
+const legalLinks = [
+  { name: 'Terms & Conditions', href: '/terms' },
+  { name: 'Privacy Policy', href: '/privacy' },
+];
+
 const solutionLinks = [
   { name: 'Custom SaaS Build', href: '/solutions/build' },
   { name: 'AI Integration', href: '/solutions/integrate' },
