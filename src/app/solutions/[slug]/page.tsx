@@ -46,29 +46,40 @@ export default async function SolutionPage(
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: category.heroTitle,
-            description: category.intro,
-            provider: {
-              "@type": "Organization",
-              name: "Oktuv",
-              url: "https://www.oktuvglobal.com"
-            },
-            serviceType: category.label,
-            areaServed: "Worldwide",
-            url: `https://www.oktuvglobal.com/solutions/${category.key}/`,
-            hasOfferCatalog: {
-              "@type": "OfferCatalog",
-              name: `${category.label} Services`,
-              itemListElement: category.services.map((s) => ({
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: category.heroTitle,
+              description: category.intro,
+              provider: {
+                "@type": "Organization",
+                name: "Oktuv",
+                url: "https://www.oktuvglobal.com"
+              },
+              serviceType: category.label,
+              areaServed: "Worldwide",
+              url: `https://www.oktuvglobal.com/solutions/${category.key}/`,
+              hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: s.name,
-                description: s.desc
-              }))
+                name: `${category.label} Services`,
+                itemListElement: category.services.map((s) => ({
+                  "@type": "OfferCatalog",
+                  name: s.name,
+                  description: s.desc
+                }))
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://www.oktuvglobal.com/" },
+                { "@type": "ListItem", position: 2, name: "Solutions", item: "https://www.oktuvglobal.com/solutions/" },
+                { "@type": "ListItem", position: 3, name: category.label, item: `https://www.oktuvglobal.com/solutions/${category.key}/` }
+              ]
             }
-          })
+          ])
         }}
       />
       <SolutionPageClient category={category} />

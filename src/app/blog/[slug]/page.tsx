@@ -58,32 +58,43 @@ export default async function BlogPostPage(
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.title,
-            description: post.excerpt,
-            datePublished: new Date(post.date).toISOString(),
-            dateModified: new Date(post.date).toISOString(),
-            articleSection: post.category,
-            author: {
-              "@type": "Organization",
-              name: "Oktuv Growth Team"
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "Oktuv",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://www.oktuvglobal.com/logo.png"
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: post.title,
+              description: post.excerpt,
+              datePublished: new Date(post.date).toISOString(),
+              dateModified: new Date(post.date).toISOString(),
+              articleSection: post.category,
+              author: {
+                "@type": "Organization",
+                name: "Oktuv Growth Team"
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Oktuv",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://www.oktuvglobal.com/logo.png"
+                }
+              },
+              image: post.image || "https://www.oktuvglobal.com/blog/featured-acquisition.webp",
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": `https://www.oktuvglobal.com/blog/${post.slug}/`
               }
             },
-            image: post.image || "https://www.oktuvglobal.com/blog/featured-acquisition.webp",
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id": `https://www.oktuvglobal.com/blog/${post.slug}/`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://www.oktuvglobal.com/" },
+                { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.oktuvglobal.com/blog/" },
+                { "@type": "ListItem", position: 3, name: post.title, item: `https://www.oktuvglobal.com/blog/${post.slug}/` }
+              ]
             }
-          })
+          ])
         }}
       />
       <Navbar />

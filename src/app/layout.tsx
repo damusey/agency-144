@@ -23,11 +23,20 @@ export const metadata: Metadata = {
     siteName: 'Oktuv',
     title: 'Oktuv — Web, AI & Growth Agency',
     description: 'Oktuv turns your digital presence into a 24/7 growth engine. Web development, AI automation, performance marketing, and design — all in one senior team.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Oktuv — Web, AI & Growth Agency',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Oktuv — Web, AI & Growth Agency',
     description: 'Web, AI, marketing, design — all in one elite team.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,

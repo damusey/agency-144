@@ -86,6 +86,26 @@ export default function FAQPage() {
   return (
     <>
       <Navbar />
+      
+      {/* FAQPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqCategories.flatMap(cat => cat.faqs).map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a
+              }
+            }))
+          })
+        }}
+      />
+
       <main style={{ minHeight: '100vh', background: 'var(--bg)', position: 'relative', overflow: 'hidden' }}>
 
         {/* Hero */}
