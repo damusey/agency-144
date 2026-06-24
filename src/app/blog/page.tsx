@@ -52,7 +52,7 @@ export default function BlogListingPage() {
           <div className="mb-20" style={{ animation: 'fadeUp 0.8s ease forwards' }}>
             <h2 className="text-sm font-semibold tracking-wider uppercase mb-6" style={{ color: 'var(--ink3)' }}>Featured Article</h2>
 
-            <Link href={`/blog/${featuredPost.slug}`} className="block group">
+            <Link href={`/blog/${featuredPost.slug}/`} className="block group">
               <div className="glass rounded-[24px] lg:rounded-[32px] overflow-hidden spotlight-container hover:-translate-y-1 hover:shadow-[0_24px_64px_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,92,0,0.2)]" style={{ padding: '2px', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}>
                 <div className="spotlight-card rounded-[22px] lg:rounded-[30px] p-8 lg:p-12 h-full flex flex-col lg:flex-row gap-10 lg:gap-16 items-center" style={{ background: 'rgba(10,10,11,0.6)' }}>
 
@@ -101,7 +101,7 @@ export default function BlogListingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {remainingPosts.map((post, i) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="block group h-full" style={{ animation: `fadeUp 0.8s ease forwards ${(i + 1) * 0.1}s`, opacity: 0 }}>
+              <Link key={post.slug} href={`/blog/${post.slug}/`} className="block group h-full" style={{ animation: `fadeUp 0.8s ease forwards ${(i + 1) * 0.1}s`, opacity: 0 }}>
                 <div className="glass rounded-[20px] overflow-hidden spotlight-container h-full flex flex-col hover:-translate-y-1 hover:bg-white/5" style={{ padding: '2px', transition: 'all 0.3s ease' }}>
                   <div className="spotlight-card rounded-[18px] p-6 lg:p-8 h-full flex flex-col" style={{ background: 'rgba(10,10,11,0.6)' }}>
 
