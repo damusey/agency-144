@@ -11,7 +11,7 @@ image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.
 
 ## The MVP Pricing Illusion
 
-If you ask 5 different agencies how much it costs to build a Custom SaaS MVP, you will get 5 wildly different answers:
+If you ask 5 different agencies how much it costs to [build a Custom SaaS MVP](/solutions/build), you will get 5 wildly different answers:
 * Agency A (Offshore Freelancers): $8,000
 * Agency B (Mid-Market Dev Shop): $35,000
 * Agency C (Enterprise Firm): $150,000+
@@ -31,7 +31,7 @@ When you hire cheap developers, they build using the architecture they know best
 * If your app goes viral, the server crashes.
 
 **The Solution:**
-Modern Product Engineering teams (like Oktuv) build using **Serverless Architecture** (Next.js deployed on Vercel, Supabase for PostgreSQL). 
+Modern Product Engineering teams (like Oktuv) build using **Serverless Architecture** ([Next.js deployed on Vercel](/hire/nextjs-developers), Supabase for PostgreSQL). 
 The initial engineering cost is higher because it requires senior developers. However, the ongoing infrastructure cost is effectively $0 for small projects, and it scales automatically when you grow globally. You completely eliminate the need for a DevOps salary.
 
 ## Hidden Cost 2: The "Spaghetti Code" Rewrite
@@ -40,7 +40,7 @@ The most devastating hidden cost of an $8,000 MVP is that it is usually built wi
 
 **The Hidden Cost:**
 You launch the MVP and get 50 paying users. They request a new feature. You ask your developers to build it. They say, *"Adding that feature will break the entire database, we need 3 months to rebuild it."* 
-You are now trapped. You have to hire a Senior CTO in the US for $150/hour to audit the code. They will tell you it is unrecoverable and must be rewritten from scratch. Your $8k MVP just cost you an additional $60k.
+You are now trapped. You have to [hire a Senior CTO](/hire) in the US for $150/hour to audit the code. They will tell you it is unrecoverable and must be rewritten from scratch. Your $8k MVP just cost you an additional $60k.
 
 **The Solution:**
 Build it right the first time using strict TypeScript, React Server Components, and proper database normalization. It costs more upfront, but the codebase will survive until Series B.

@@ -35,6 +35,19 @@ const resourceLinks = [
   { name: 'Reduce CAC with AI', href: '/blog/reduce-customer-acquisition-cost-ai/' },
 ];
 
+const industryLinks = [
+  { name: 'Healthcare', href: '/industries/healthcare/ai-automation/' },
+  { name: 'Fintech', href: '/industries/fintech/saas-development/' },
+  { name: 'E-commerce', href: '/industries/ecommerce/web-development/' },
+  { name: 'SaaS & B2B', href: '/industries/saas/web-development/' },
+];
+
+const expertiseLinks = [
+  { name: 'React Developers', href: '/hire/react-developers/' },
+  { name: 'Next.js Experts', href: '/hire/nextjs-developers/' },
+  { name: 'AI Engineers', href: '/hire/ai-automation-developers/' },
+];
+
 export default function Footer() {
   return (
     <footer style={{ padding: '80px 0 40px', background: '#050505', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
@@ -83,7 +96,35 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Column 4: Company */}
+            {/* Column 4: Industries */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Industries</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
+                {industryLinks.map(l => (
+                  <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
+                    {l.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Column 5: Hire Experts */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Hire Experts</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
+                {expertiseLinks.map(l => (
+                  <Link key={l.name} href={l.href} style={{ textDecoration: 'none', color: 'inherit', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}>
+                    {l.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            
+            {/* Column 6: Company */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Company</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>
@@ -97,7 +138,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Column 5: Top Resources */}
+            {/* Column 7: Top Resources */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <h4 style={{ color: '#fff', fontSize: '15px', fontWeight: 600 }}>Top Resources</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>

@@ -15,7 +15,7 @@ For decades, the standard playbook for growing a small or medium-sized enterpris
 
 While labor costs in India made this viable in the past, this linear scaling model is now fundamentally broken. Managing massive operational teams creates immense overhead, introduces human error, and destroys profit margins. 
 
-In 2026, the most profitable businesses are decoupling their revenue growth from their headcount. How? By leveraging **Agentic AI Automation**.
+In 2026, the most profitable businesses are decoupling their revenue growth from their headcount. How? By leveraging **[Agentic AI Automation](/platform/flowai)**.
 
 ## What is Agentic AI Automation?
 
@@ -30,7 +30,7 @@ For an Indian SME, this means you can deploy an AI agent that acts exactly like 
 In India, WhatsApp is not just a messaging app; it is the internet. If you force an Indian consumer to leave WhatsApp to fill out a clunky web form, your conversion rate plummets.
 
 **The Solution:**
-By integrating a custom AI Flowbot into your WhatsApp Business API, you can automate your entire top-of-funnel sales process.
+By integrating a [custom AI Flowbot](/platform/flowbot) into your WhatsApp Business API, you can automate your entire top-of-funnel sales process.
 * **Lead Qualification:** The AI chats with prospects naturally, asking qualifying questions and storing the data directly in your CRM.
 * **Instant Support:** It resolves 80% of Tier-1 support queries (e.g., "Where is my order?", "What are your pricing plans?") instantly, in multiple regional languages.
 * **Payment Collection:** Using native WhatsApp UPI integrations, the AI can actually close the sale and collect payment without the user ever leaving the chat.
@@ -56,7 +56,7 @@ Instead of relying on gut feeling, AI algorithms analyze your historical sales d
 Training new employees takes weeks. Searching through disorganized Google Drives for standard operating procedures (SOPs) wastes hours.
 
 **The Solution:**
-We build custom RAG (Retrieval-Augmented Generation) applications for your business. We feed all your company data, PDFs, employee handbooks, and past customer emails into a secure, private AI. 
+We [build custom RAG](/solutions/build) (Retrieval-Augmented Generation) applications for your business. We feed all your company data, PDFs, employee handbooks, and past customer emails into a secure, private AI. 
 Now, your employees can simply ask the AI: *"What is our refund policy for wholesale orders?"* and get an instant, accurate answer cited from your own documentation.
 
 ## The Financial Impact: ROI Analysis

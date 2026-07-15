@@ -17,7 +17,7 @@ You think: *"We are going to have a million users, so I need to deploy Kubernete
 
 This is the fastest way to kill a startup. 
 
-Premature optimization is the root of all evil. If you spend 4 months building a microservices architecture for an MVP that has zero paying users, you will run out of funding before you can ever test your hypothesis against the market.
+Premature optimization is the root of all evil. If you spend 4 months building a microservices architecture for an [MVP that has zero paying users](/solutions/build), you will run out of funding before you can ever test your hypothesis against the market.
 
 In 2026, the mandate for an MVP is **Velocity**. You must go from `git init` to collecting credit card payments in 30 days. To do this, you must ruthlessly eliminate infrastructure management and embrace the modern serverless stack.
 
@@ -25,7 +25,7 @@ In 2026, the mandate for an MVP is **Velocity**. You must go from `git init` to 
 
 At Oktuv, when a startup hires us to build their MVP, we do not spend three weeks configuring Docker containers. We use a highly opinionated, unified stack that allows our engineers to write business logic on Day 1.
 
-### 1. The Core Framework: Next.js (App Router)
+### 1. The Core Framework: [Next.js (App Router)](/hire/nextjs-developers)
 Do not build a separate React SPA (Single Page Application) and a separate Node.js/Express backend. You are doubling your deployment complexity and API routing boilerplate. 
 
 Next.js allows you to write React Server Components (RSCs) and secure Server Actions in the same repository. This unified approach cuts development time in half while delivering vastly superior web performance.
@@ -33,7 +33,7 @@ Next.js allows you to write React Server Components (RSCs) and secure Server Act
 ### 2. The Database & Auth: Supabase
 Do not roll your own JWT authentication. Do not manually provision a PostgreSQL instance on RDS. 
 
-Supabase provides enterprise-grade PostgreSQL, Google/GitHub OAuth, and Row Level Security (RLS) policies out of the box. Because Supabase uses standard PostgreSQL, you aren't locked into a proprietary NoSQL schema (like Firebase), meaning you can easily migrate to AWS RDS in 3 years when you actually hit enterprise scale.
+[Supabase provides enterprise-grade PostgreSQL](/hire/supabase-developers), Google/GitHub OAuth, and Row Level Security (RLS) policies out of the box. Because Supabase uses standard PostgreSQL, you aren't locked into a proprietary NoSQL schema (like Firebase), meaning you can easily migrate to AWS RDS in 3 years when you actually hit enterprise scale.
 
 ### 3. The UI: Tailwind CSS + Shadcn
 Writing custom CSS is a waste of time during an MVP sprint. Use Tailwind CSS for utility-first styling and drop in accessible, pre-built components from Shadcn UI. You get beautiful modals, forms, and data tables instantly, ensuring the MVP looks like a Series B product without the design overhead.

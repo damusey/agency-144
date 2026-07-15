@@ -23,7 +23,7 @@ In 2026, the paradigm has shifted from Generative AI to **Agentic AI**.
 
 Basic AI answers questions. Agentic AI takes action.
 
-An Agentic AI system acts as an autonomous digital employee. You give it a high-level goal, and the agent determines the necessary steps to achieve it, interacts with third-party software (via APIs), course-corrects when it encounters errors, and delivers the final result.
+An Agentic AI system acts as an autonomous digital employee. You give it a high-level goal, and the agent determines the necessary steps to achieve it, interacts with third-party software (via [API integrations](/solutions/integrate)), course-corrects when it encounters errors, and delivers the final result.
 
 ### The Core Architecture of an AI Agent
 
@@ -35,7 +35,7 @@ To understand why Agentic AI is so powerful, you have to look at its architectur
 
 ## Generative AI vs. Agentic AI: A Real-World Example
 
-To illustrate the difference, let’s look at a common B2B use case: **Customer Support for a SaaS product.**
+To illustrate the difference, let’s look at a common B2B use case: **Customer Support for a SaaS product using an [autonomous support bot](/platform/flowbot).**
 
 **The Generative AI Approach (The Old Way):**
 A customer submits a ticket saying, *"I want to upgrade my account to the Pro tier, but my credit card failed."*
@@ -57,7 +57,7 @@ When the user updates the card, the Agent receives the webhook from Stripe, exec
 
 ## Why Startups Must Adopt Agentic Architectures
 
-For funded startups and enterprise product teams, building Agentic AI into your core architecture is no longer optional if you want to remain competitive. 
+For funded startups and enterprise product teams, [building Agentic AI](/solutions/build) into your core architecture is no longer optional if you want to remain competitive. 
 
 ### 1. The Ultimate Defensibility (Moat)
 Building a SaaS product that simply acts as a UI wrapper around OpenAI's API is a guaranteed path to churn. Your competitors can clone it in a weekend. However, building an Agentic architecture that deeply integrates with a user's proprietary data and automates complex, multi-step actions creates a massive technical moat.

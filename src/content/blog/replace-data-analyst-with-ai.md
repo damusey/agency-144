@@ -25,7 +25,7 @@ There is a better way. By leveraging modern AI engineering, startups can build a
 
 ## Engineering an Automated Analyst
 
-To replace a human analyst, you don't need a massive team; you need a smart architecture. As a Fractional CTO, here is the lightweight, highly automated stack Oktuv deploys for early-stage SaaS startups.
+To replace a human analyst, you don't need a massive team; you need a smart architecture. As a [Fractional CTO](/hire), here is the lightweight, highly automated stack Oktuv deploys for early-stage SaaS startups.
 
 ### 1. The Single Source of Truth (Supabase / Postgres)
 Startups fail at analytics because their data is siloed. Stripe holds the billing data, Clerk holds the user auth data, and Vercel holds the performance logs. 
@@ -36,7 +36,7 @@ We unify this. By utilizing Supabase (a robust PostgreSQL database) as the centr
 A massive part of a human analyst's job is cleaning messy data. We replace this entirely with **dbt (data build tool)**. We write automated scripts that run every night at 2:00 AM. These scripts take the raw event data, clean it, calculate complex metrics (like rolling 30-day churn, or cohort retention), and store those clean numbers in specialized "reporting" tables.
 
 ### 3. The LLM Query Engine (The "Senior Analyst")
-With the data perfectly cleaned and structured in PostgreSQL, we connect an AI Agent (powered by LangChain and an LLM like GPT-4o) directly to your database schema. 
+With the data perfectly cleaned and structured in PostgreSQL, we connect an [AI Agent](/platform/flowai) (powered by LangChain and an LLM like GPT-4o) directly to your database schema. 
 
 Instead of opening a massive SQL IDE, the founder simply opens a Slack channel or an internal dashboard and types:
 *"What was the churn rate last month for users who never activated the 'AI Report' feature?"*
@@ -46,7 +46,7 @@ The AI Agent instantly translates that English query into a secure SQL command, 
 ## The Financial and Operational ROI
 
 ### 1. Zero Headcount Burn
-By investing in a one-time product engineering sprint to build this architecture, you completely eliminate the need for a full-time analytics hire during your critical Seed and Series A phases. That is $100,000+ added directly back to your runway.
+By investing in a one-time [product engineering sprint](/solutions/build) to build this architecture, you completely eliminate the need for a full-time analytics hire during your critical Seed and Series A phases. That is $100,000+ added directly back to your runway.
 
 ### 2. Instant Iteration
 When you are searching for Product-Market Fit, you must iterate rapidly. Waiting 48 hours for an analyst to build a dashboard is too slow. With an AI architecture, a founder can ask 50 different data questions in 10 minutes, instantly identifying which features are driving retention and which are causing churn.

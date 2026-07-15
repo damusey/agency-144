@@ -10,6 +10,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/api/'],
       },
+      // Explicitly allow AI crawlers for AEO (Generative Engine Optimization)
+      {
+        userAgent: ['GPTBot', 'ClaudeBot', 'PerplexityBot', 'GoogleOther', 'anthropic-ai'],
+        allow: '/',
+      }
     ],
     sitemap: 'https://www.oktuvglobal.com/sitemap.xml',
   };

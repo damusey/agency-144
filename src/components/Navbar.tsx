@@ -7,7 +7,7 @@ import { ArrowRight, Menu, X, Sparkles, LineChart, Bot, Boxes, ChevronDown } fro
 import { solutionCategories, iconMap } from '@/data/solutions';
 
 export const navLinks = [
-  { name: 'Solutions', href: '/#services' },
+  { name: 'Solutions', href: '/solutions/' },
   { name: 'Platform', href: '/platform/flowai/' },
   { name: 'Work', href: '/work/' },
   { name: 'Blog', href: '/blog/' },

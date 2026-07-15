@@ -15,7 +15,7 @@ If you launched a Direct-to-Consumer (D2C) brand in India five years ago, the pl
 
 In 2026, that strategy is a guaranteed way to burn cash. 
 
-Customer Acquisition Costs (CAC) have skyrocketed. Meta and Google's algorithms have shifted dramatically. The Indian consumer is far more sophisticated and skeptical. To scale a D2C brand to ₹10Cr+ ARR today, you must abandon amateur tactics and embrace **Advanced Performance Marketing** combined with **Elite Web Engineering**.
+Customer Acquisition Costs (CAC) have skyrocketed. Meta and Google's algorithms have shifted dramatically. The Indian consumer is far more sophisticated and skeptical. To scale a D2C brand to ₹10Cr+ ARR today, you must abandon amateur tactics and embrace **[Advanced Performance Marketing](/solutions/performance-marketing)** combined with **Elite Web Engineering**.
 
 ## The 4 Pillars of D2C Scaling in 2026
 
@@ -40,7 +40,7 @@ Most D2C brands are crippled by bloated Shopify themes loaded with 30+ conflicti
 
 **The Solution is Headless Commerce:**
 We decouple the front-end of your website from the Shopify back-end. 
-* We build a blazing-fast, custom front-end using **Next.js**.
+* We build a blazing-fast, custom front-end using **[Next.js](/hire/nextjs-developers)**.
 * We use **Shopify** merely as the database/checkout engine.
 * We use a Headless CMS like **Sanity** to manage content.
 
@@ -50,7 +50,7 @@ This architecture results in near-instant page loads (perfect Google Lighthouse 
 
 Never send paid traffic to your homepage. Your homepage is a generic brochure; it is not a conversion engine. 
 
-Advanced D2C brands utilize programmatic SEO and dynamic routing to generate hundreds of specific landing pages. If a user clicks an ad targeting "Organic Skincare for Acne," they must land on a page that specifically addresses acne, highlights relevant reviews, and offers a tailored bundle. 
+Advanced D2C brands utilize programmatic SEO and dynamic routing to generate hundreds of specific [landing pages](/solutions/engage). If a user clicks an ad targeting "Organic Skincare for Acne," they must land on a page that specifically addresses acne, highlights relevant reviews, and offers a tailored bundle. 
 
 With Next.js and dynamic routing, Oktuv engineers architectures that can generate thousands of highly specific, lightning-fast landing pages at scale, ensuring perfect message-match from the ad to the checkout.
 

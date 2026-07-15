@@ -26,7 +26,7 @@ LlamaIndex was originally built specifically for one purpose: **Retrieval-Augmen
 ### When to use LlamaIndex:
 If your startup's core value proposition is "chatting with data," LlamaIndex is unparalleled. 
 
-Let's say you are building an AI SaaS for law firms. The entire product involves uploading 1,000-page PDF case files and having an AI instantly answer legal questions based on those files.
+Let's say you are [building an AI SaaS](/solutions/build) for law firms. The entire product involves uploading 1,000-page PDF case files and having an AI instantly answer legal questions based on those files.
 
 LlamaIndex shines here because it has the most sophisticated data ingestion pipelines in the industry. It natively understands how to chunk complex PDFs (preserving tables and headers), generate vector embeddings, and interface seamlessly with vector databases like `pgvector` or Pinecone. Its default retrieval algorithms are highly optimized, meaning you get incredibly accurate answers with very little custom configuration.
 
@@ -39,7 +39,7 @@ While LlamaIndex focuses on data, LangChain focuses on **Action**.
 LangChain is a massive, highly abstracted framework designed to build "Agents." An Agent does not just retrieve data; it makes decisions and executes tools.
 
 ### When to use LangChain:
-If your startup's core value proposition is "automating workflows," you need LangChain.
+If your startup's core value proposition is "automating workflows," you need [LangChain](/platform/flowai).
 
 Let's say you are building an AI SaaS for customer support. When a user asks for a refund, the AI shouldn't just read a PDF policy document (which LlamaIndex is good at). The AI needs to:
 1. Query the Stripe API to check the user's payment status.
@@ -55,7 +55,7 @@ LangChain provides the complex routing architectures (like LangGraph) required t
 
 For small, localized Indian SaaS projects or massive B2B platforms, the truth is that modern AI applications often require *both* capabilities.
 
-At Oktuv, our Product Engineering team does not adhere to framework tribalism. We architect hybrid systems.
+At Oktuv, our [Product Engineering team](/hire) does not adhere to framework tribalism. We architect hybrid systems.
 * We use **LlamaIndex** to handle the heavy lifting of document parsing, semantic chunking, and populating our Supabase vector database.
 * We use **LangChain** (specifically LangGraph) as the "Brain" of the application, orchestrating the reasoning loop and deciding when to trigger the LlamaIndex retrieval tool versus when to trigger an external API call.
 

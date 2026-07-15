@@ -15,7 +15,7 @@ Most conversations about AI data analytics revolve around structured databases. 
 
 However, structured data represents less than 20% of an enterprise's total knowledge. The remaining 80% is unstructured data: PDFs, legal contracts, customer support emails, Zoom call transcripts, and messy system logs. This unstructured data is the "dark matter" of the enterprise—massive, invisible, and incredibly difficult to analyze.
 
-Until now, extracting insights from 10,000 PDF contracts required an army of human analysts reading documents manually. Today, we use **Agentic AI and Vector Architectures** to turn that unstructured mess into instant, actionable intelligence.
+Until now, extracting insights from 10,000 PDF contracts required an army of human analysts reading documents manually. Today, we use **[Agentic AI and Vector Architectures](/platform/flowai)** to turn that unstructured mess into instant, actionable intelligence.
 
 ## Why Generative AI Fails at Unstructured Data
 
@@ -25,13 +25,13 @@ If you try to upload a 500-page PDF to a standard ChatGPT interface and ask a hi
 2. **Hallucinations:** If the LLM cannot find the exact answer, its generative nature forces it to "guess" or invent a plausible-sounding answer. In a legal or medical context, a hallucination is catastrophic.
 3. **Lack of Provenance:** The LLM gives you an answer, but it cannot cite exactly which page or paragraph it pulled the information from.
 
-To analyze massive unstructured datasets securely and accurately, you must engineer a **Retrieval-Augmented Generation (RAG) Architecture**.
+To analyze massive unstructured datasets securely and accurately, you must engineer a **[Retrieval-Augmented Generation (RAG) Architecture](/solutions/build)**.
 
 ## Engineering the RAG Pipeline
 
 A RAG architecture fundamentally changes how an AI interacts with data. Instead of trying to "memorize" your data, the AI is taught how to "search" your data, retrieve the relevant facts, and then generate an answer based *strictly* on those facts.
 
-Here is the exact engineering blueprint Oktuv uses to build unstructured data analytics tools for enterprise clients:
+Here is the exact engineering blueprint Oktuv uses to [build unstructured data analytics tools](/hire/ai-automation-developers) for enterprise clients:
 
 ### 1. The Ingestion & Chunking Phase
 We cannot feed 10,000 PDFs directly to an LLM. First, we build a pipeline that ingests the raw documents (from AWS S3, Google Drive, or SharePoint) and breaks them down into smaller, semantic "chunks" (e.g., individual paragraphs or sections).

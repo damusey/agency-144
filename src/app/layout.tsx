@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import "highlight.js/styles/github-dark.css";
 import ScarcityBar from "@/components/ScarcityBar";
 import Chatbot from "@/components/Chatbot";
 
@@ -91,10 +92,28 @@ export default function RootLayout({
             ],
             contactPoint: {
               "@type": "ContactPoint",
-              telephone: "+91-000-000-0000",
               contactType: "customer service",
               email: "hello@oktuvglobal.com",
               availableLanguage: ["English", "Hindi"]
+            }
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Oktuv",
+            url: "https://www.oktuvglobal.com",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: "https://www.oktuvglobal.com/blog?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
             }
           })
         }}

@@ -17,7 +17,7 @@ Your conversion rate is a dismal 0.8%. Your Cost Per Acquisition (CPA) is so hig
 
 Founders immediately blame the marketing agency. They change the ad copy. They change the targeting. It doesn't work.
 
-**The truth:** The marketing is working perfectly. Your website architecture is fundamentally broken, and it is silently killing your conversions. Here are the 3 technical signs you need an urgent architecture rewrite.
+**The truth:** The marketing is working perfectly. Your [website architecture](/solutions/build) is fundamentally broken, and it is silently killing your conversions. Here are the 3 technical signs you need an urgent architecture rewrite.
 
 ## Sign 1: The "Janky" Mobile Load (High CLS)
 
@@ -29,7 +29,7 @@ This is called **Cumulative Layout Shift (CLS)**. It is the most frustrating use
 
 If your website layout shifts around while loading, 40% of mobile users will instantly hit the "Back" button in frustration. Google’s algorithm will detect this "Pogo-Sticking" behavior and heavily penalize your SEO ranking.
 
-**The Fix:** You must migrate away from bloated WordPress or Shopify Liquid themes. A modern Next.js frontend forces engineers to explicitly define image dimensions, reserving the exact mathematical space on the screen *before* the image loads. The layout remains rock solid.
+**The Fix:** You must migrate away from bloated WordPress or Shopify Liquid themes. A modern [Next.js frontend](/hire/nextjs-developers) forces engineers to explicitly define image dimensions, reserving the exact mathematical space on the screen *before* the image loads. The layout remains rock solid.
 
 ## Sign 2: The "Blank White Screen" (High TBT)
 
@@ -49,7 +49,7 @@ Modern consumers expect hyper-personalized landing pages. The message on the pag
 
 Why don't companies build personalized landing pages? Because in legacy architectures like WordPress, asking a developer to build 50 different landing pages takes 3 months and costs $20,000. 
 
-**The Fix:** You need a **Headless CMS integration (like Sanity.io)** connected to a Next.js frontend. This architecture allows your marketing team to programmatically generate hundreds of lightning-fast, SEO-optimized, highly targeted landing pages without ever touching a line of code.
+**The Fix:** You need a **Headless CMS integration (like Sanity.io)** connected to a Next.js frontend. This architecture allows your marketing team to programmatically generate hundreds of lightning-fast, SEO-optimized, [highly targeted landing pages](/solutions/engage) without ever touching a line of code.
 
 ## Stop Burning Ad Spend
 

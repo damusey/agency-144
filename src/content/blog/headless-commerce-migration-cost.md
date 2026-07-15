@@ -15,7 +15,7 @@ If your D2C brand is generating over $5 million in ARR on Shopify, you have like
 
 Your store takes 5 seconds to load because of 30+ plugins. Your conversion rate is stagnating at 1.8%. Your marketing team is demanding highly custom, programmatic landing pages that the standard Shopify Liquid theme simply cannot support.
 
-The logical next step is migrating to a **Headless Commerce Architecture** (using Next.js as the front-end and Shopify as the back-end engine). 
+The logical next step is migrating to a **[Headless Commerce Architecture](/solutions/build)** (using Next.js as the front-end and Shopify as the back-end engine). 
 
 But headless is not a cheap plugin you install on a Tuesday. It is a fundamental re-engineering of your digital storefront. Before you commit, you need a transparent understanding of the costs, the timeline, and the expected Return on Investment (ROI).
 
@@ -28,7 +28,7 @@ For an established mid-market D2C brand, a professional headless migration typic
 Here is where that budget goes:
 
 ### 1. Front-End Engineering (Next.js)
-This is the bulk of the cost. A team of Senior React/Next.js engineers will build your entire storefront from scratch. They must recreate every product page, collection page, cart drawer, and user account portal, ensuring perfect mobile responsiveness and sub-second load times. 
+This is the bulk of the cost. A team of [Senior React/Next.js engineers](/hire/nextjs-developers) will build your entire storefront from scratch. They must recreate every product page, collection page, cart drawer, and user account portal, ensuring perfect mobile responsiveness and sub-second load times. 
 *Estimated Cost: $20,000 - $45,000*
 
 ### 2. CMS Integration (Sanity or Builder.io)
@@ -44,7 +44,7 @@ Standard Shopify plugins (like Yotpo for reviews, or Recharge for subscriptions)
 A high-quality headless migration cannot be rushed. It requires strict QA testing. If the cart API fails during a Black Friday sale because the migration was rushed, the financial damage is catastrophic.
 
 * **Weeks 1-3:** UI/UX Design & Architecture Planning.
-* **Weeks 4-8:** Core Engineering (Next.js development, Shopify Storefront API integration).
+* **Weeks 4-8:** Core Engineering (Next.js development, [Shopify Storefront API integration](/solutions/integrate)).
 * **Weeks 9-10:** CMS Integration & Third-Party API wiring (Reviews, Subscriptions, Search).
 * **Weeks 11-12:** QA, Load Testing, and Deployment to Vercel.
 

@@ -18,7 +18,7 @@ We constantly speak with founders who complain about the same three issues:
 2. **The Security Vulnerabilities:** They wake up to find their site hacked or injected with spam links because a random slider plugin wasn't updated.
 3. **The Developer Gridlock:** Every time the marketing team wants a new custom landing page, the developers have to write messy PHP templates, taking weeks to deploy.
 
-The industry-standard solution is to migrate the front-end to **Next.js** while keeping a "Headless CMS" (like Sanity, Builder.io, or even Headless WordPress) for content management. 
+The industry-standard solution is to migrate the front-end to **[Next.js](/hire/nextjs-developers)** while keeping a "Headless CMS" (like Sanity, Builder.io, or even Headless WordPress) for content management. 
 
 Here is the exact Return on Investment (ROI) you can expect from this migration.
 
@@ -48,13 +48,13 @@ In the WordPress ecosystem, your developers are constrained by the "WordPress wa
 **The Next.js Solution:**
 Next.js is built on React. Your developers have access to the largest, most powerful ecosystem of UI components in the world. Need an interactive data chart? Drop in Recharts. Need a complex 3D animation? Drop in Three.js. 
 
-* **The ROI:** Your engineering team's velocity doubles. A custom, highly interactive feature that would take a WordPress developer 3 weeks to build can be executed by a Next.js engineer in 3 days.
+* **The ROI:** Your engineering team's velocity doubles. A custom, highly interactive feature that would take a WordPress developer 3 weeks to build can be executed by a [Next.js engineer](/hire/nextjs-developers) in 3 days.
 
 ## Managing the Content (The Headless CMS)
 
 A common fear is that moving away from WordPress means the marketing team will lose their ability to write blog posts easily. 
 
-This is false. When we migrate a site to Next.js, we integrate a **Headless CMS** like Sanity.io. Your marketing team gets a beautiful, drag-and-drop interface to write blogs and build landing pages that is actually much faster and cleaner than the clunky WordPress `wp-admin` dashboard.
+This is false. When we [migrate a site to Next.js](/solutions/build), we integrate a **Headless CMS** like Sanity.io. Your marketing team gets a beautiful, drag-and-drop interface to write blogs and build landing pages that is actually much faster and cleaner than the clunky WordPress `wp-admin` dashboard.
 
 ## Execute Your Migration with Oktuv
 

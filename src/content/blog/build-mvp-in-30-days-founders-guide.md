@@ -15,7 +15,7 @@ One of the most common mistakes non-technical founders make is treating their Mi
 
 If your MVP takes 6 months to build, you are not building an MVP—you are building an ego project. 
 
-The goal of an MVP is to test a core hypothesis against the market as fast as possible. In 2026, with the advent of modern serverless frameworks and modular architectures, it is entirely possible to build a robust, scalable, and secure SaaS MVP in exactly 30 days.
+The goal of an MVP is to test a core hypothesis against the market as fast as possible. In 2026, with the advent of modern serverless frameworks and modular architectures, it is entirely possible to [build a robust, scalable, and secure SaaS MVP](/solutions/build) in exactly 30 days.
 
 This is the exact blueprint we use at Oktuv to launch products for funded startups.
 
@@ -38,10 +38,10 @@ Choosing the wrong technology stack will kill your velocity. If you choose monol
 To move at lightning speed, you need a "Serverless" and "Headless" stack. Here is the Oktuv 30-Day Stack:
 
 ### 1. The Framework: Next.js (App Router)
-Next.js is the undisputed king of modern web development. It allows developers to write both the front-end (UI) and the back-end (API routes) in a single unified codebase using TypeScript. This eliminates the need for a separate backend team, doubling your velocity.
+[Next.js](/hire/nextjs-developers) is the undisputed king of modern web development. It allows developers to write both the front-end (UI) and the back-end (API routes) in a single unified codebase using TypeScript. This eliminates the need for a separate backend team, doubling your velocity.
 
 ### 2. The Database & Auth: Supabase
-Do not build your own authentication system. Do not provision your own PostgreSQL servers on AWS from scratch. Supabase is an open-source Firebase alternative that gives you a massive, scalable PostgreSQL database, secure authentication, and real-time subscriptions out of the box in minutes.
+Do not build your own authentication system. Do not provision your own PostgreSQL servers on AWS from scratch. [Supabase](/hire/supabase-developers) is an open-source Firebase alternative that gives you a massive, scalable PostgreSQL database, secure authentication, and real-time subscriptions out of the box in minutes.
 
 ### 3. The UI Library: Tailwind CSS & Shadcn UI
 Do not write custom CSS for every button and form. We use Tailwind CSS combined with Shadcn UI to drop beautiful, accessible, and responsive components directly into the codebase. This turns weeks of front-end design into hours.

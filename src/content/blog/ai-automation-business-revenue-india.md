@@ -15,7 +15,7 @@ The adoption of technology in India often skips a generation. The classic exampl
 
 In 2026, we are witnessing the exact same "Leapfrog Effect" in software.
 
-Small and Medium Enterprises (SMEs) in India—from logistics companies in Mumbai to digital marketing agencies in Bangalore—are skipping the era of buying clunky, expensive, $500/month traditional SaaS tools. Instead, they are jumping straight to **Custom AI Automation**.
+Small and Medium Enterprises (SMEs) in India—from logistics companies in Mumbai to digital marketing agencies in Bangalore—are skipping the era of buying clunky, expensive, $500/month traditional SaaS tools. Instead, they are jumping straight to **[Custom AI Automation](/solutions/build)**.
 
 Here is why Indian SMEs are aggressively adopting AI, and how it is directly driving bottom-line revenue.
 
@@ -27,7 +27,7 @@ In India, WhatsApp is not just a messaging app; it is the entire operating syste
 A local D2C fashion brand runs Instagram ads. The customer clicks the ad, goes to a slow website, gets confused, and bounces. If they have a question, they email support and wait 24 hours.
 
 **The AI Automation Approach:**
-The brand implements an **AI Flowbot**. When the customer clicks the ad, it opens a WhatsApp chat. The customer types (in Hindi, English, or Hinglish): *"Do you have this red dress in a medium size?"*
+The brand implements an **[AI Flowbot](/platform/flowbot)**. When the customer clicks the ad, it opens a WhatsApp chat. The customer types (in Hindi, English, or Hinglish): *"Do you have this red dress in a medium size?"*
 
 The AI Agent, integrated directly with the brand's Shopify inventory via Supabase, instantly checks the stock and replies: *"Yes! We have 3 left in Medium. Would you like me to process your UPI payment right here?"*
 
@@ -56,7 +56,7 @@ A local Indian real estate agency can now afford to commission a custom AI agent
 
 ## Partner with Oktuv
 
-Whether you are a global enterprise looking to expand or a local Indian SME looking to scale revenue without scaling headcount, the solution is Custom AI Engineering.
+Whether you are a global enterprise looking to expand or a local Indian SME looking to scale revenue without scaling headcount, the solution is [Custom AI Engineering](/hire/ai-automation-developers).
 
 At Oktuv, we don't build generic SaaS. We build the custom AI automation engines that power the next generation of hyper-profitable businesses. 
 

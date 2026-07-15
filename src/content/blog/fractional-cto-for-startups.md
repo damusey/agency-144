@@ -20,13 +20,13 @@ You need technical leadership immediately. You need a Chief Technology Officer (
 **The problem?**
 A competent, US-based CTO with experience scaling B2B SaaS platforms demands a base salary of $200,000 to $250,000, plus significant equity. Furthermore, hiring a CTO takes 3 to 6 months of interviewing. You do not have 6 months to wait while your servers are crashing.
 
-This is why the most capital-efficient startups in 2026 are bypassing full-time executive hires and partnering with **Fractional CTOs and Elite Engineering Squads.**
+This is why the most capital-efficient startups in 2026 are bypassing full-time executive hires and partnering with **[Fractional CTOs and Elite Engineering Squads](/hire).**
 
 ## What is a Fractional CTO?
 
 A Fractional CTO is a highly experienced technical executive who integrates into your startup on a part-time or contract basis. They do not just offer "advice." They dictate the architecture, manage the engineering sprints, and ensure the technology aligns perfectly with your business goals.
 
-When you partner with a firm like Oktuv, you don't just get a Fractional CTO; you get their entire elite engineering squad (Senior Next.js developers, DevOps engineers, and AI architects).
+When you partner with a firm like Oktuv, you don't just get a Fractional CTO; you get their entire [elite engineering squad](/hire/nextjs-developers) (Senior Next.js developers, DevOps engineers, and AI architects).
 
 Here is why this model is dominating the startup ecosystem.
 
@@ -36,7 +36,7 @@ If you hire a full-time CTO, they will spend their first month auditing the code
 
 A Fractional CTO team drops into your Slack channel on Day 1. Because we already have a cohesive squad of elite engineers who have built dozens of Next.js and Supabase platforms together, there is zero "storming and norming" phase. 
 
-We can completely rewrite a failing monolithic MVP into a scalable, serverless architecture in 45 days. You get to market faster than a traditional CTO can finish the interview process.
+We can completely rewrite a failing monolithic MVP into a [scalable, serverless architecture](/solutions/build) in 45 days. You get to market faster than a traditional CTO can finish the interview process.
 
 ## 2. Institutional Knowledge & Architecture
 

@@ -11,7 +11,7 @@ image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3
 
 ## The Decoupling Challenge
 
-When a D2C brand makes the brilliant technical decision to migrate to a Headless Commerce architecture (using Shopify purely as the backend database and Next.js as the lightning-fast frontend), a new problem arises. 
+When a D2C brand makes the brilliant technical decision to [migrate to a Headless Commerce architecture](/solutions/build) (using Shopify purely as the backend database and Next.js as the lightning-fast frontend), a new problem arises. 
 
 Where does the marketing team go to write blog posts, build landing pages, and update hero images? They can no longer use the standard Shopify Theme Editor, because the "Theme" no longer exists.
 
@@ -37,7 +37,7 @@ Contentful is one of the original pioneers of the headless CMS movement. It is a
 Sanity approach is fundamentally different. Instead of providing a rigid web dashboard, Sanity provides a "Studio"—an open-source React application that your developers install and customize locally.
 
 ### The Strengths of Sanity
-* **Structured Content as Data:** Sanity treats all content as raw JSON data (using a powerful query language called GROQ). This means your Next.js frontend can query highly specific, nested relationships effortlessly.
+* **Structured Content as Data:** Sanity treats all content as raw JSON data (using a powerful query language called GROQ). This means your [Next.js frontend](/hire/nextjs-developers) can query highly specific, nested relationships effortlessly.
 * **Infinite Customization:** Because the Sanity Studio is just a React app, developers can build custom input fields. If you want a color-picker, an interactive map, or a custom Shopify product selector directly inside the CMS, a developer can build it in an hour.
 * **Real-Time Collaboration:** Like Google Docs, multiple marketers can edit the same document simultaneously, seeing each other's cursors in real time.
 
@@ -56,7 +56,7 @@ You are a fast-moving D2C brand, a startup, or an agile agency. The ability to r
 
 ## The Oktuv Architecture
 
-At Oktuv, when we architect Headless Shopify builds for ambitious D2C brands, our default tech stack is **Next.js + Shopify Storefront API + Sanity.io**.
+At Oktuv, when we [architect Headless Shopify builds](/solutions/build) for ambitious D2C brands, our default tech stack is **Next.js + Shopify Storefront API + Sanity.io**.
 
 We custom-engineer the Sanity Studio so that your marketing team can drag-and-drop Next.js components to build programmatic landing pages in seconds, without ever needing to submit an IT ticket.
 

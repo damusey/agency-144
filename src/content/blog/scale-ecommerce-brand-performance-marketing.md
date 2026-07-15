@@ -17,7 +17,7 @@ But eventually, every D2C brand hits a brutal plateau.
 
 You try to scale the ad budget from $10k a month to $30k a month, but the algorithm breaks. Your Cost Per Acquisition (CPA) triples. You are spending 3x more money but acquiring the same number of customers. The margins evaporate.
 
-To break through this plateau and scale to $1M+ ARR, you have to stop "hustling" and start engineering a highly sophisticated **Performance Marketing Machine**. 
+To break through this plateau and scale to $1M+ ARR, you have to stop "hustling" and start engineering a highly sophisticated **[Performance Marketing Machine](/solutions/performance-marketing)**. 
 
 Here is the exact blueprint Oktuv uses to scale D2C eCommerce brands in 2026.
 
@@ -30,7 +30,7 @@ Today, the biggest lever you have to lower your CPA is **Website Architecture**.
 
 If you are sending $30k of ad traffic to a standard Shopify liquid theme that takes 4 seconds to load on mobile, you are burning cash. Meta tracks the "post-click experience." If a user clicks your ad and bounces because the site is slow, Meta penalizes your Ad Quality Score. Your Cost Per Click (CPC) skyrockets.
 
-**The Solution:** We migrate scaling brands to a **Headless Next.js Architecture**. By dropping the page load time to under 1 second, we instantly decrease bounce rates, signal a high-quality experience to the ad algorithms, and permanently lower the CPC. 
+**The Solution:** We migrate scaling brands to a **[Headless Next.js Architecture](/solutions/build)**. By dropping the page load time to under 1 second, we instantly decrease bounce rates, signal a high-quality experience to the ad algorithms, and permanently lower the CPC. 
 
 ## 2. Creative Velocity (The Volume Game)
 
@@ -49,7 +49,7 @@ A massive mistake D2C founders make is sending all ad traffic (regardless of the
 If the ad highlights "Sustainability," the landing page must focus entirely on sustainability. If the ad highlights "Durability," the landing page must focus entirely on durability. 
 
 **The Execution:**
-Using a Headless CMS (like Sanity.io) connected to a Next.js frontend, our marketing team generates hyper-specific, programmatic landing pages for every single ad angle. 
+Using a Headless CMS (like Sanity.io) connected to a Next.js frontend, our marketing team generates hyper-specific, [programmatic landing pages](/solutions/engage) for every single ad angle. 
 When the message on the ad perfectly matches the message on the landing page, the conversion rate multiples. This is how you offset rising ad costs.
 
 ## 4. Aggressive LTV Optimization (Email & SMS)

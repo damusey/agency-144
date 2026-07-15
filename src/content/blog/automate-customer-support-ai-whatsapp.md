@@ -21,7 +21,7 @@ However, if you audit your support tickets, you will find a startling truth: **8
 
 Paying a human salary to copy and paste the same 5 answers all day is a massive waste of capital. Furthermore, humans sleep, take breaks, and make errors. Customers in 2026 demand instant, 24/7 resolution. 
 
-The solution is not to outsource to a cheaper call center. The solution is to deploy an **Agentic AI Flowbot** directly on the channel your customers already use: WhatsApp.
+The solution is not to outsource to a cheaper call center. The solution is to deploy an **[Agentic AI Flowbot](/platform/flowbot)** directly on the channel your customers already use: WhatsApp.
 
 ## Why WhatsApp?
 
@@ -35,7 +35,7 @@ It is critical to distinguish between a "dumb chatbot" and an "Agentic AI".
 
 Old chatbots (built on platforms like ManyChat or Dialogflow) use strict decision trees. If the user types a keyword, the bot spits out a pre-written response. If the user asks a complex question that falls outside the rigid tree, the bot breaks and says, *"I'm sorry, I don't understand."* This infuriates users.
 
-**Agentic AI Flowbots are fundamentally different.**
+**[Agentic AI Flowbots](/platform/flowai) are fundamentally different.**
 They use Large Language Models (LLMs) to understand the semantic intent of the user's message, regardless of typos or phrasing. More importantly, they have API access to your backend systems, allowing them to actually *take action*.
 
 ## How an AI Flowbot Executes a Complex Query
@@ -56,7 +56,7 @@ A dumb chatbot would fail entirely. A human agent would take 15 minutes to verif
 
 ## The Impact on CSAT and Margins
 
-Deploying a custom AI Flowbot transforms your operational economics.
+Deploying a [custom AI Flowbot](/solutions/build) transforms your operational economics.
 
 ### 1. Zero Wait Times (24/7 Resolution)
 Customers receive highly personalized, accurate resolutions in seconds at 3:00 AM on a Sunday. Customer Satisfaction (CSAT) scores routinely increase by 30-40% when transitioning from human-only to AI-first support.

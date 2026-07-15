@@ -21,13 +21,13 @@ Here are the Top 5 web development mistakes that kill startup scalability, and e
 
 ## 1. Choosing Client-Side React (CRA) Over Next.js
 
-As discussed in earlier articles, authorizing an offshore developer to build your B2B SaaS using standard Client-Side React (like Create-React-App or Vite) is a massive mistake.
+As discussed in earlier articles, authorizing an offshore developer to [build your B2B SaaS](/solutions/build) using standard Client-Side React (like Create-React-App or Vite) is a massive mistake.
 
 **Why it kills scalability:**
 * **SEO Death:** Google cannot efficiently crawl your JavaScript-heavy pages, meaning you will never acquire organic B2B leads.
 * **Mobile Friction:** The massive JS bundle causes your app to load slowly on mobile networks, skyrocketing your bounce rate.
 
-**The Fix:** Mandate that your MVP is built using a Server-Side Rendering (SSR) framework like **Next.js**. It provides enterprise-grade performance and perfect SEO out of the box.
+**The Fix:** Mandate that your MVP is built using a Server-Side Rendering (SSR) framework like **[Next.js](/hire/nextjs-developers)**. It provides enterprise-grade performance and perfect SEO out of the box.
 
 ## 2. Ignoring Database Normalization (The NoSQL Trap)
 
@@ -54,7 +54,7 @@ When building a marketing site, developers often hardcode the text and images di
 **Why it kills scalability:**
 Every time the marketing team wants to change a typo, update a price, or launch a new landing page, they have to submit an IT ticket. A developer has to edit the code, compile it, and deploy it to the server. This absolutely destroys your marketing velocity.
 
-**The Fix:** Implement a **Headless CMS** (like Sanity.io) on Day 1. Decouple the content from the code so the marketing team can operate autonomously without bothering the engineering team.
+**The Fix:** Implement a **[Headless CMS](/solutions/engage)** (like Sanity.io) on Day 1. Decouple the content from the code so the marketing team can operate autonomously without bothering the engineering team.
 
 ## 5. Over-Engineering with Microservices
 

@@ -6,26 +6,42 @@
 Oktuv helps modern B2B SaaS and eCommerce brands scale. We replace outdated WordPress monoliths with lightning-fast Next.js apps, automate customer support and analytics with Agentic AI, and drive growth with performance marketing.
 
 ## Solutions
-- [Custom SaaS Build](https://www.oktuvglobal.com/solutions/build)
-- [AI Integration](https://www.oktuvglobal.com/solutions/integrate)
-- [Performance Growth](https://www.oktuvglobal.com/solutions/grow)
-- [Design & UX](https://www.oktuvglobal.com/solutions/design)
-- [Digital Transformation](https://www.oktuvglobal.com/solutions/transform)
-- [Customer Engagement](https://www.oktuvglobal.com/solutions/engage)
+- [Custom SaaS Build](https://www.oktuvglobal.com/solutions/build/)
+- [AI Integration](https://www.oktuvglobal.com/solutions/integrate/)
+- [Performance Growth](https://www.oktuvglobal.com/solutions/grow/)
+- [Design & UX](https://www.oktuvglobal.com/solutions/design/)
+- [Digital Transformation](https://www.oktuvglobal.com/solutions/transform/)
+- [Customer Engagement](https://www.oktuvglobal.com/solutions/engage/)
 
 ## Platform
-- [FlowAI Analytics](https://www.oktuvglobal.com/platform/flowai): AI-powered agentic analytics platform.
-- [FlowBot](https://www.oktuvglobal.com/platform/flowbot): Autonomous AI chatbot and relationship agent.
+- [FlowAI Analytics](https://www.oktuvglobal.com/platform/flowai/): AI-powered agentic analytics platform.
+- [FlowBot](https://www.oktuvglobal.com/platform/flowbot/): Autonomous AI chatbot and relationship agent.
 
 ## Knowledge Base & Guides
-- [Oktuv Blog](https://www.oktuvglobal.com/blog)
-- [What Is Agentic AI?](https://www.oktuvglobal.com/blog/what-is-agentic-ai-2025-guide)
-- [Custom SaaS Cost Breakdown](https://www.oktuvglobal.com/blog/custom-saas-development-cost-2025)
-- [Reduce CAC with AI](https://www.oktuvglobal.com/blog/reduce-customer-acquisition-cost-ai)
+- [Oktuv Blog](https://www.oktuvglobal.com/blog/)
+- [What Is Agentic AI?](https://www.oktuvglobal.com/blog/what-is-agentic-ai-2025-guide/)
+- [Custom SaaS Cost Breakdown](https://www.oktuvglobal.com/blog/custom-saas-development-cost-2025/)
+- [Reduce CAC with AI](https://www.oktuvglobal.com/blog/reduce-customer-acquisition-cost-ai/)
 
 ## Company & Contact
-- [About Us](https://www.oktuvglobal.com/about)
-- [Our Work / Portfolio](https://www.oktuvglobal.com/work)
-- [FAQ](https://www.oktuvglobal.com/faq)
-- [Contact Us](https://www.oktuvglobal.com/contact)
-- [Book an Audit](https://www.oktuvglobal.com/audit)
+- [About Us](https://www.oktuvglobal.com/about/)
+- [Our Work / Portfolio](https://www.oktuvglobal.com/work/)
+- [FAQ](https://www.oktuvglobal.com/faq/)
+- [Contact Us](https://www.oktuvglobal.com/contact/)
+- [Book an Audit](https://www.oktuvglobal.com/audit/)
+
+## Core Capabilities FAQ
+Q: What tech stack do you use for web development?
+A: We specialize in modern JavaScript ecosystems, primarily React, Next.js, and Node.js. This allows us to build extremely fast, SEO-friendly, and scalable web applications.
+
+Q: How do you ensure the web application is secure?
+A: We implement industry-standard security protocols including JWT authentication, CSRF protection, and rigorous API validation to protect your data.
+
+Q: What kind of AI automation do you build?
+A: We build custom AI agents, automated customer support bots, RAG (Retrieval-Augmented Generation) systems, and internal workflow automations using models like OpenAI and Anthropic.
+
+Q: Can AI integrate with our existing software?
+A: Yes, we can seamlessly integrate custom AI workflows into your existing CRM, ERP, or internal databases via custom API layers.
+
+Q: Does Headless commerce improve SEO?
+A: Significantly. By utilizing Next.js Server-Side Rendering (SSR), your store will achieve sub-second load times and perfect Core Web Vitals, which are massive ranking factors for Google.

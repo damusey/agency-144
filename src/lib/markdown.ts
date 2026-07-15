@@ -2,7 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
-import html from 'remark-html';
+import remarkRehype from 'remark-rehype';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
 
 const postsDirectory = path.join(process.cwd(), 'src/content/blog');
 
@@ -20,6 +22,7 @@ export interface BlogPostMetadata {
 
 export interface BlogPost extends BlogPostMetadata {
   content: string;
+  toc?: { id: string; text: string; level: number }[];
 }
 
 // Ensure the directory exists
@@ -70,16 +73,35 @@ export async function getPostData(slug: string): Promise<BlogPost | null> {
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
 
-    // Use remark to convert markdown into HTML string
+    // Use remark to convert markdown into HTML string with syntax highlighting
     const processedContent = await remark()
-      .use(html, { sanitize: false }) // Allow raw HTML inside markdown for flexibility
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeHighlight)
+      .use(rehypeStringify, { allowDangerousHtml: true })
       .process(matterResult.content);
     
-    const contentHtml = processedContent.toString();
+    let contentHtml = processedContent.toString();
+
+    // Generate Table of Contents and inject IDs into HTML
+    const toc: { id: string; text: string; level: number }[] = [];
+    
+    contentHtml = contentHtml.replace(/<h([23])>(.*?)<\/h\1>/g, (match, level, text) => {
+      // Strip any nested HTML tags from the heading text for the slug
+      const plainText = text.replace(/<[^>]*>?/gm, '');
+      const id = plainText.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+      
+      toc.push({ id, text: plainText, level: parseInt(level) });
+      
+      return `<h${level} id="${id}" class="scroll-mt-24 group">
+        ${text}
+        <a href="#${id}" class="ml-2 opacity-0 group-hover:opacity-100 transition-opacity text-[var(--brand)] text-sm no-underline" aria-label="Link to this section">#</a>
+      </h${level}>`;
+    });
 
     return {
       slug,
       content: contentHtml,
+      toc,
       ...(matterResult.data as Omit<BlogPostMetadata, 'slug'>),
     };
   } catch (error) {

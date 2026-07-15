@@ -23,19 +23,19 @@ The traditional path is to hire a standard "Custom Software Development Agency."
 
 This model is fundamentally incompatible with the speed at which a modern startup needs to move. In 2026, the traditional agency model is dead. 
 
-To survive, startups are partnering with **AI-First Product Engineering Teams**.
+To survive, startups are partnering with **[AI-First Product Engineering Teams](/hire)**.
 
 ## What is an AI-First Engineering Team?
 
 An AI-first engineering team (like Oktuv) operates fundamentally differently from a standard dev shop. We do not just "take orders and write code." We act as your Fractional CTO.
 
 ### 1. Velocity Through Modern Architecture
-We do not waste your funding building boilerplate infrastructure. We use a highly opinionated, unified stack—Next.js, Supabase, and Tailwind CSS. This allows us to bypass weeks of server configuration and immediately start building the core business logic of your SaaS. What takes a traditional agency 6 months, we build in 30 to 45 days.
+We do not waste your funding building boilerplate infrastructure. We use a highly opinionated, unified stack—[Next.js](/hire/nextjs-developers), Supabase, and Tailwind CSS. This allows us to bypass weeks of server configuration and immediately start building the core business logic of your SaaS. What takes a traditional agency 6 months, we build in 30 to 45 days.
 
 ### 2. Native AI Integration
 Almost every successful SaaS built in 2026 has an AI component. Whether it is an LLM summarizing data, a vector database powering semantic search, or an autonomous Agent executing workflows. 
 
-Traditional agencies treat AI as an afterthought—they just slap a ChatGPT API wrapper onto a bad dashboard. An AI-first engineering team architects the application around the AI from Day 1, ensuring data security, minimal token costs, and zero hallucinations.
+Traditional agencies treat AI as an afterthought—they just slap a ChatGPT API wrapper onto a bad dashboard. An [AI-first engineering team](/solutions/build) architects the application around the AI from Day 1, ensuring data security, minimal token costs, and zero hallucinations.
 
 ### 3. Scalable for Small and Global Projects
 A common misconception is that elite engineering is only for Fortune 500 companies. This is false. 

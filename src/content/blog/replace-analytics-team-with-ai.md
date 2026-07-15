@@ -19,7 +19,7 @@ The Junior Data Analyst receives the ticket, writes a complex SQL query, joins t
 
 By the time the founder receives the answer, the opportunity to intervene has passed, and the client has already churned.
 
-This traditional analytics workflow is slow, expensive, and scales poorly. In 2026, enterprise companies are bypassing this bottleneck entirely by deploying **Agentic AI Data Assistants**.
+This traditional analytics workflow is slow, expensive, and scales poorly. In 2026, enterprise companies are bypassing this bottleneck entirely by deploying **[Agentic AI Data Assistants](/platform/flowai)**.
 
 ## Chatting with Your Database
 
@@ -38,7 +38,7 @@ This is not science fiction. This is a standard **Text-to-SQL RAG (Retrieval-Aug
 
 You cannot achieve this by pasting your database schema into ChatGPT. Doing so is a massive security violation and will result in hallucinations. 
 
-To build an enterprise-grade AI Data Assistant, you need a secure, custom-engineered pipeline. Here is the blueprint Oktuv uses for our enterprise clients:
+To build an enterprise-grade AI Data Assistant, you need a secure, custom-engineered pipeline. Here is the [blueprint Oktuv uses](/solutions/build) for our enterprise clients:
 
 ### 1. The Semantic Layer
 Databases are messy. Column names like `usr_txn_amt_v2` mean nothing to an AI. We build a "Semantic Layer" using tools like dbt or custom metadata mappings. This layer translates your messy database schema into clean, logical definitions that the Large Language Model (LLM) can understand.
@@ -50,7 +50,7 @@ We use an orchestration framework like LangChain to build the "Agent." When a us
 The generated SQL is never executed blindly. The architecture forces the SQL through a read-only execution sandbox. This ensures the AI can never accidentally drop a table (`DROP TABLE users`) or expose encrypted PII (Personally Identifiable Information). 
 
 ### 4. Data Visualization 
-Once the secure query returns the raw data, the Agent pushes that data into a front-end visualization library (like Tremor or Recharts in a Next.js app), automatically rendering the appropriate line chart, pie chart, or cohort matrix for the user.
+Once the secure query returns the raw data, the Agent pushes that data into a front-end visualization library (like Tremor or Recharts in a [Next.js app](/hire/nextjs-developers)), automatically rendering the appropriate line chart, pie chart, or cohort matrix for the user.
 
 ## The Business Impact
 

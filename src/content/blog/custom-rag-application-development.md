@@ -19,7 +19,7 @@ If you ask a raw LLM, *"What is the standard discount we offered to our Indian d
 
 You cannot train a base LLM on your private data; it is prohibitively expensive and poses massive security risks. 
 
-The industry-standard solution is **Retrieval-Augmented Generation (RAG)**. 
+The industry-standard solution is **[Retrieval-Augmented Generation (RAG)](/platform/flowai)**. 
 
 ## What is a RAG Application?
 
@@ -31,7 +31,7 @@ This eliminates hallucinations, ensures 100% data security, and provides direct 
 
 ## The Blueprint: Building a RAG Pipeline
 
-Building a custom RAG application requires sophisticated Product Engineering. Here is the technical pipeline Oktuv builds for our B2B SaaS and Enterprise clients.
+Building a custom RAG application requires sophisticated Product Engineering. Here is the technical pipeline Oktuv [builds for our B2B SaaS](/solutions/build) and Enterprise clients.
 
 ### Step 1: Ingestion & Chunking
 Your proprietary data exists in various formats (PDFs, Notion docs, Zendesk tickets). The first step is to build data pipelines that ingest these documents and break them down into semantic "chunks" (e.g., individual paragraphs of 500 tokens). If you chunk the data poorly, the retrieval engine will fail to find the right context.
@@ -52,7 +52,7 @@ We use an orchestration framework like LangChain to manage the interaction loop.
 5. The LLM generates the final answer.
 
 ### Step 5: The Frontend Interface (Next.js)
-Finally, we build a lightning-fast, highly responsive frontend using **Next.js** to stream the LLM's response back to the user in real-time, complete with clickable citations referencing the original PDFs.
+Finally, we build a lightning-fast, highly responsive frontend using **[Next.js](/hire/nextjs-developers)** to stream the LLM's response back to the user in real-time, complete with clickable citations referencing the original PDFs.
 
 ## Beyond Basic RAG: Advanced Techniques for 2026
 

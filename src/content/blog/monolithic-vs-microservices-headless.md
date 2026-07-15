@@ -17,7 +17,7 @@ You launch your MVP. You acquire users. The business grows. And then, abruptly, 
 
 When you reach this point, you have hit the limitations of your underlying architecture. 
 
-In 2026, when companies look to rebuild or scale their platforms, they face three primary architectural paradigms: **Monolithic**, **Microservices**, and **Headless/Composable**. 
+In 2026, when companies look to rebuild or scale their platforms, they face three primary architectural paradigms: **Monolithic**, **Microservices**, and **[Headless/Composable](/solutions/build)**. 
 
 Here is a definitive, technical breakdown of each, and exactly how to choose the right one for your phase of growth.
 
@@ -33,7 +33,7 @@ A Monolithic architecture means everything—the database logic, the backend bus
 * **The "Spaghetti" Effect:** As the team grows, multiple developers are editing the same massive codebase. The code becomes entangled. A change to the inventory module breaks the shipping module.
 * **Vertical Scaling Only:** If your frontend UI gets a massive traffic spike, you cannot just scale the frontend servers. You have to duplicate the *entire* massive application, which is incredibly expensive and inefficient.
 
-**The Verdict:** Perfect for bootstrapping a local Indian SME portal or an early-stage MVP. Disastrous for a global D2C brand doing $10M+ ARR.
+**The Verdict:** Perfect for bootstrapping a local Indian SME portal or an [early-stage MVP](/solutions/build). Disastrous for a global D2C brand doing $10M+ ARR.
 
 ## 2. Microservices (The Enterprise Extreme)
 
@@ -57,7 +57,7 @@ Microservices are the exact opposite of a monolith. Instead of one massive appli
 
 The "Headless" or "Composable" architecture is the modern hybrid. It gives you the scalability of microservices without the crippling DevOps overhead.
 
-"Headless" simply means decoupling the Frontend (the Head) from the Backend (the Body).
+"Headless" simply means decoupling the Frontend (the Head) from the [Backend](/solutions/integrate) (the Body).
 
 Instead of building your own backend microservices from scratch, you compose your architecture using elite, third-party "Best-of-Breed" APIs.
 * **The Frontend:** A custom, blazing-fast Next.js application.

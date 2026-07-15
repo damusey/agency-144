@@ -6,6 +6,9 @@ import { getPostData, getSortedPostsData } from '@/lib/markdown';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import RelatedPosts from '@/components/RelatedPosts';
+import RelatedServices from '@/components/RelatedServices';
+import ClientBlogInteractions from '@/components/ClientBlogInteractions';
+import ClientTableOfContents from '@/components/ClientTableOfContents';
 
 // Generate static params for all blog slugs at build time
 export function generateStaticParams() {
@@ -37,11 +40,20 @@ export async function generateMetadata(
       description: post.metaDescription,
       type: 'article',
       publishedTime: post.date,
+      images: [
+        {
+          url: 'https://www.oktuvglobal.com/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: cleanTitle,
+        }
+      ]
     },
     twitter: {
       card: 'summary_large_image',
       title: post.metaTitle,
       description: post.metaDescription,
+      images: ['https://www.oktuvglobal.com/og-image.png'],
     }
   };
 }
@@ -133,13 +145,19 @@ export default async function BlogPostPage(
             </div>
           </header>
 
-          {/* Post Content */}
-          <div className="max-w-[720px] mx-auto px-6" style={{ animation: 'fadeUp 0.8s ease forwards 0.2s', opacity: 0 }}>
-            {/* Custom styles just for blog content typography to ensure readability and beauty */}
-            <div
-              className="blog-content"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+          {/* Post Content with Sidebar Layout */}
+          <div className="max-w-[1100px] mx-auto px-6 relative flex flex-col xl:flex-row xl:items-start gap-12 xl:gap-20" style={{ animation: 'fadeUp 0.8s ease forwards 0.2s', opacity: 0 }}>
+            
+            {/* Desktop and Mobile Table of Contents Sidebar */}
+            {post.toc && post.toc.length > 0 && <ClientTableOfContents headings={post.toc} />}
+
+            {/* Main Article Body */}
+            <div className="flex-1 min-w-0 max-w-[720px] mx-auto xl:mx-0">
+              {/* Custom styles just for blog content typography to ensure readability and beauty */}
+              <div
+                className="blog-content"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
 
             <style dangerouslySetInnerHTML={{
               __html: `
@@ -205,12 +223,11 @@ export default async function BlogPostPage(
                   <div className="text-[12px]" style={{ color: 'var(--ink3)' }}>Authors</div>
                 </div>
               </div>
-              <button className="flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold transition-colors bg-white/5 text-[var(--ink2)] hover:bg-white/10">
-                <Share2 size={14} /> Share
-              </button>
+              <ClientBlogInteractions title={post.title} url={`https://www.oktuvglobal.com/blog/${post.slug}/`} />
             </div>
           </div>
-
+          </div>
+          <RelatedServices />
           <RelatedPosts currentSlug={post.slug} />
         </article>
       </main>
