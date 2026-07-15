@@ -75,17 +75,17 @@ A security-first architecture adds 15-25% to the total project cost. But the alt
 
 ### 7. Ongoing Maintenance
 
-This is the cost founders consistently forget. Your app does not stop costing money after launch.
+This is the cost founders consistently forget. Your app does not stop costing money after launch. However, you do not need to pay inflated Western agency retainers to keep it running smoothly.
 
-| Maintenance Category | Typical Annual Cost |
+| Maintenance Category | Typical Annual Cost (Offshore Advantage) |
 | :--- | :--- |
-| Bug fixes & patches | $5,000 – $15,000 |
-| OS/SDK updates (iOS & Android release cycles) | $3,000 – $10,000 |
-| Server infrastructure | $6,000 – $36,000 |
-| Feature iteration (based on user feedback) | $15,000 – $50,000+ |
+| Bug fixes & patches | $1,500 – $5,000 |
+| OS/SDK updates (iOS & Android release cycles) | $1,000 – $3,000 |
+| Server infrastructure (AWS / Supabase) | $1,000 – $5,000 |
+| Feature iteration (based on user feedback) | $5,000 – $15,000 |
 | App Store fees (Apple + Google) | $200/year |
 
-**Rule of thumb:** Budget 20-25% of your initial build cost annually for maintenance. An app that costs $100,000 to build will cost $20,000–$25,000/year to keep healthy.
+**The Oktuv Advantage:** Western agencies will tell you to budget 20-25% of your initial build cost (often $20,000+/year) just to keep the lights on. Because we leverage a highly skilled, cost-effective Indian engineering hub, our clients typically spend **$3,000 to $15,000 annually** for full-stack maintenance, OS updates, and continuous feature iteration. For domestic Indian clients, the economics are even more favorable.
 
 ## The Hidden Costs That Kill Budgets
 
